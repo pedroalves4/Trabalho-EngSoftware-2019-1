@@ -92,4 +92,3 @@
     include "footer.php";
 ?>
 
-</html>
