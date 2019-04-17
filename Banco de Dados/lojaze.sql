@@ -1,7 +1,7 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
---
+-- 
 -- Host: 127.0.0.1:3306
 -- Generation Time: 19-Fev-2019 às 13:12
 -- Versão do servidor: 5.7.21
