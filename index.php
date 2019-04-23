@@ -1,94 +1,129 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible">
-    <title>Lojão do Zé</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="publico/css/bootstrap.min.css" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="publico/css/estilo.css">
-
-</head>
-<?php
-    include "header.php";
-?>
-
-<body>
-
-    <hr>
-    <h1>Aqui está o corpo do Site!</h1>
-    <hr>
-    <!-- Carrossel -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="imagem" src="publico/imagens/logo.png" alt="Primeiro slide">
-            </div>
-            
-            <div class="carousel-item">
-                <img class="imagem" src="publico/imagens/produto.jpg" alt="Segundo slide">
-            </div>
-
-            <div class="carousel-item">
-                <img class="imagem" src="publico/imagens/produto2.png" alt="Terceiro slide">
-            </div>
-
-            <div class="carousel-item">
-                <img class="imagem" src="publico/imagens/produto3.jpg" alt="Quarto slide">
-            </div>
-            
-            <div class="carousel-item">
-                <img class="imagem" src="publico/imagens/produto4.jpg" alt="Quinto slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+  <?php include ('header.php'); ?>
+  <?php include ('dashboard.php'); ?>
+  
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) --> 
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <!--Algum conteudo aqui-->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
-    <!-- Fim do Carrossel -->
-    <hr>
-    <!-- Texto descritivo do Lojão do Zé -->
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec ligula quis lorem scelerisque cursus ac non
-        metus. Sed eleifend elementum justo at pretium. Proin et mauris ut neque tincidunt vestibulum. Nunc scelerisque,
-        odio faucibus ullamcorper hendrerit, orci neque ullamcorper leo, ac mattis purus lectus et elit. Integer finibus
-        faucibus arcu, eget sodales purus dignissim a. Proin semper rhoncus neque, sed auctor augue sagittis et. Aenean
-        risus sem, commodo eu ultricies in, vestibulum sit amet nisi.</p>
+    <!-- /.content-header -->
 
-    <p>Etiam nunc nulla, molestie vitae velit ac, bibendum eleifend libero. Proin ut rhoncus nisl, elementum auctor
-        elit. Quisque sit amet lobortis felis. Donec lobortis massa ipsum, et congue erat congue ut. Proin sollicitudin
-        lacus eget nibh maximus, eu dignissim arcu luctus. Phasellus tristique dapibus volutpat. Etiam scelerisque,
-        lacus aliquet posuere maximus, eros velit sagittis metus, eget cursus lacus mauris eu odio. Aenean eu volutpat
-        mauris, sollicitudin feugiat eros. Sed non lacus ex. Nulla accumsan porttitor turpis, elementum congue odio
-        condimentum eu. Donec eget libero et ex dignissim pulvinar ut sed ipsum. Nulla et tincidunt enim. Nunc dictum
-        magna non orci sollicitudin elementum.</p>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>150</h3>
 
-    <p>Quisque vitae augue mi. Suspendisse semper aliquam gravida. Suspendisse sodales libero lacus. Nam sed augue quam.
-        Sed maximus metus vel tempor ultrices. Duis laoreet mi et neque ultricies, at vestibulum quam finibus. Aliquam
-        tempor nisl enim, eu vehicula eros placerat eget. Maecenas iaculis, lorem eget malesuada pellentesque, justo
-        nisl aliquet mi, ut sollicitudin metus nisl non lectus. Nullam ac eros et mauris commodo egestas vitae eu massa.
-        Curabitur lorem nisl, aliquam sit amet tristique nec, lacinia at sapien. Suspendisse libero justo, facilisis at
-        dapibus ut, iaculis quis nunc. Aliquam a elit vel eros tincidunt consequat. Etiam vel sapien sem.</p>
+                <p>Vendas</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-    <p>Suspendisse vestibulum, massa ac pretium iaculis, metus dolor vulputate purus, ut condimentum turpis turpis non
-        diam. Ut euismod commodo neque, eu sollicitudin libero tincidunt vitae. Aliquam at eleifend elit. Sed molestie
-        hendrerit purus at faucibus. Morbi non elementum est. Vestibulum vel aliquet risus. Etiam auctor dolor urna, id
-        cursus metus fermentum quis. Nulla nec ex enim. Praesent imperdiet urna arcu, sit amet congue nisi mattis id.
-    </p>
-    <!-- Fim do Texto descritivo do Lojão do Zé -->
-</body>
+                <p>Produtos</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
 
-<hr>
+                <p>Usuários</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
 
+                <p>Setores</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
 
-<?php
-    include "footer.php";
-?>
+            <!-- Calendar -->
+            <div class="card bg-success-gradient">
+              <div class="card-header no-border">
 
+                <h3 class="card-title">
+                  <i class="fa fa-calendar"></i>
+                  Calendário
+                </h3>
+                <!-- tools card -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-success btn-sm" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+                <!-- /. tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <!--The calendar -->
+                <div id="calendar" style="width: 100%"></div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<?php include ('footer.php');
