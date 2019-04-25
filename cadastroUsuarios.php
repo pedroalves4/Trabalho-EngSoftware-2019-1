@@ -48,21 +48,28 @@
               <form action="" method="POST" target="_self" role="form">
                 <div class="card-body">
                   <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
                       <label for="exampleInputEmail1">Email</label>
                       <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Digite o email">
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="exampleInputPassword1">Password</label>
+                    <div class="form-group col-md-4">
+                      <label for="exampleInputPassword1">Senha</label>
                       <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite a senha">
                     </div>
+                    <div class="form-group col-md-3">
+                      <label>Tipo de Usuário</label>
+                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
+                        <option disabled>Admin</option>
+                        <option>Cliente</option>
+                      </select>
+                    </div>    
                   </div> 
                   <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
                       <label for="exampleInputEmail1">Nome</label>
                       <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                       <label for="exampleInputEmail1">Telefone</label>
                       <input type="text" name="telefone" class="form-control" id="exampleInputEmail1"  placeholder="(11) 11111-1111" onkeypress="mascara(this, '## #####-####')"  maxlength="13">
                     </div>
@@ -98,7 +105,7 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label>Estado</label>
-                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="cidade">
+                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="estado">
                         <option selected>AC</option>
                         <option>AL</option>
                         <option>AP</option>
@@ -147,6 +154,7 @@
 
         $email = $_POST['email'];
         $senha = $_POST['senha'];
+        $tipo = $_POST['tipo'];
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];
         $cpf = $_POST['cpf'];
@@ -156,7 +164,7 @@
         $estado = $_POST['estado'];
         $cep = $_POST['cep'];
 
-        $sql = "insert into usuarios (email,senha,nome,telefone,cpf,endereco,complemento,cidade,estado,cep) values ('$email','$senha','$nome','$telefone','$cpf','$endereco','$complemento','$cidade','$estado','$cep')";
+        $sql = "insert into usuarios (email,senha,tipo,nome,telefone,cpf,endereco,complemento,cidade,estado,cep) values ('$email','$senha','$tipo','$nome','$telefone','$cpf','$endereco','$complemento','$cidade','$estado','$cep')";
         $salvar = mysqli_query($conexao,$sql);
 
         if($salvar){

@@ -27,7 +27,19 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <?php require('bd/conexao.php'); ?>
+<?php
+    session_start();
+		if(!isset($_SESSION['email']) || !isset($_SESSION['senha'])){							
+	     	session_destroy();
+	     	echo "<script language='javascript' type'text/javascript'>
+				  	alert('Você precisa estar logado para acessar o conteúdo de administrador!');
+				  	window.location.replace('login.php');
+				  </script>";    	
+		}
+?>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 

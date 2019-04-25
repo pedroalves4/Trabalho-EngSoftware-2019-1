@@ -1,7 +1,7 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 <?php 
-$sql = "SELECT * FROM usuarios"; //buscando todos usuarios
+$sql = "SELECT * FROM usuarios ORDER BY nome ASC"; //buscando todos usuarios
 $result = $conexao->query($sql);
 ?>
 
@@ -36,6 +36,7 @@ $result = $conexao->query($sql);
                 <tr>
                   <th>Nome</th>
                   <th>Email</th>
+                  <th>Tipo</th>
                   <th>Telefone</th>
                   <th>CPF</th>
                   <th>Cidade</th>
@@ -51,7 +52,8 @@ $result = $conexao->query($sql);
                     while ($row = $result->fetch_assoc()) {
                      echo "<tr>";
                       echo "<td>" .$row["nome"] . "</td>"; 
-                      echo "<td>" .$row["email"] . "</td> "; 
+                      echo "<td>" .$row["email"] . "</td> ";
+                      echo "<td>" .$row["tipo"] . "</td>";  
                       echo "<td>" .$row["telefone"] . "</td> "; 
                       echo "<td>" .$row["cpf"] . "</td>"; 
                       echo "<td>" .$row["cidade"] . "</td>"; 
