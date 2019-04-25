@@ -60,8 +60,10 @@ $result = $conexao->query($sql);
                       echo "<td>" .$row["estado"] . "</td>"; 
                       echo "<td>" .$row["cidade"] . "</td>"; 
                       echo "<td>" .$row["cep"] . "</td>"; 
-                      echo "<td><a href='#' style='text-decoration: none;color: #000;'><i class='fa fa-edit'></i></a></td>"; 
-                      echo "<td><a href='#' style='text-decoration: none;color: #000;'><i class='fa fa-trash'></i></a></td>"; 
+                      ?>
+                      <td><a href="#" style="text-decoration: none;color: #000;"><i class="fa fa-edit"></i></a></td>
+                      <td><a href="crudDelete.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;"><i class="fa fa-trash"></i></a></td>
+                      <?php
                       echo "<tr>";
                     }  
                 }    
