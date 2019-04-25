@@ -39,6 +39,7 @@ $result = $conexao->query($sql);
                   <th>Tipo</th>
                   <th>Telefone</th>
                   <th>CPF</th>
+                  <th>Estado</th>
                   <th>Cidade</th>
                   <th>CEP</th>
                   <th></th>
@@ -55,7 +56,8 @@ $result = $conexao->query($sql);
                       echo "<td>" .$row["email"] . "</td> ";
                       echo "<td>" .$row["tipo"] . "</td>";  
                       echo "<td>" .$row["telefone"] . "</td> "; 
-                      echo "<td>" .$row["cpf"] . "</td>"; 
+                      echo "<td>" .$row["cpf"] . "</td>";
+                      echo "<td>" .$row["estado"] . "</td>"; 
                       echo "<td>" .$row["cidade"] . "</td>"; 
                       echo "<td>" .$row["cep"] . "</td>"; 
                       echo "<td><a href='#' style='text-decoration: none;color: #000;'><i class='fa fa-edit'></i></a></td>"; 
