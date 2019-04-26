@@ -63,7 +63,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="exampleInputPassword1">Senha</label>
-                      <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite a senha" value="<?php echo $row['senha'] ?>" required>
+                      <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite a senha" value="<?php echo $row['senha'] ?>" disabled>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Tipo de Usuário</label>
@@ -169,7 +169,7 @@
 
 
         $email = $_POST['email'];
-        $senha = $_POST['senha'];
+        //$senha = $_POST['senha'];
         $tipo = $_POST['tipo'];
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];
@@ -180,7 +180,9 @@
         $estado = $_POST['estado'];
         $cep = $_POST['cep'];
 
-        $sql = "UPDATE usuarios SET email = '$email', senha = '$senha', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = 'endereco', complemento = 'complemento', cidade = '$cidade', estado = '$estado', cep = '$cep' WHERE id = '$id'";
+        //$sql = "UPDATE usuarios SET email = '$email', senha = '$senha', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = 'endereco', complemento = 'complemento', cidade = '$cidade', estado = '$estado', cep = '$cep' WHERE id = '$id'";
+        $sql = "UPDATE usuarios SET email = '$email', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = '$endereco', complemento = '$complemento', cidade = '$cidade', estado = '$estado', cep = '$cep' WHERE id = '$id'";
+
         $salvar = mysqli_query($conexao,$sql);
 
         if($salvar){
