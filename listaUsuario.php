@@ -17,7 +17,7 @@ $result = $conexao->query($sql);
           <div class="col-sm-4">
           </div><!-- vazio para alinhar botao de adicionar à esquerda -->  
           <div class="col-sm-2">
-            <a href="cadastroUsuarios.php"><button type="button" class="btn btn-block btn-success"><i class="nav-icon fa fa-plus"></i> Adicionar</button></a>
+            <a href="insertUsuario.php"><button type="button" class="btn btn-block btn-success"><i class="nav-icon fa fa-plus"></i> Adicionar</button></a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -62,7 +62,7 @@ $result = $conexao->query($sql);
                       echo "<td>" .$row["cep"] . "</td>"; 
                       ?>
                       <td><a href="#" style="text-decoration: none;color: #000;"><i class="fa fa-edit"></i></a></td>
-                      <td><a href="crudDelete.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;"><i class="fa fa-trash"></i></a></td>
+                      <td><a href="deleteUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;"><i class="fa fa-trash"></i></a></td>
                       <?php
                       echo "<tr>";
                     }  

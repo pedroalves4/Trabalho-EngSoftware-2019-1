@@ -52,7 +52,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="usuarios.php" class="nav-link">
+            <a href="listaUsuario.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Usuários
