@@ -22,7 +22,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Cadastro de Usuário</h1>
+            <h1 class="m-0 text-dark">Editor de Usuário</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- nada aqui -->  
@@ -45,16 +45,25 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+                <?php
+                    
+                    $id = $_GET['id'];
+                    $sql = "SELECT * FROM usuarios WHERE id = $id"; //buscando todos usuarios
+                    $result = $conexao->query($sql);
+
+                    while($row = $result->fetch_assoc())
+                    {
+                ?>            
               <form action="" method="POST" target="_self" role="form">
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group col-md-5">
                       <label for="exampleInputEmail1">Email</label>
-                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Digite o email" required>
+                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Digite o email" value="<?php echo $row['email'] ?>" required>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="exampleInputPassword1">Senha</label>
-                      <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite a senha" required>
+                      <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite a senha" value="<?php echo $row['senha'] ?>" required>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Tipo de Usuário</label>
@@ -73,15 +82,15 @@
                   <div class="row">
                     <div class="form-group col-md-5">
                       <label for="exampleInputEmail1">Nome</label>
-                      <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+                      <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome" value="<?php echo $row['nome'] ?>" required>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="exampleInputEmail1">Telefone</label>
-                      <input type="text" name="telefone" class="form-control" id="exampleInputEmail1"  placeholder="(11) 11111-1111" onkeypress="mascara(this, '## #####-####')"  maxlength="13" required>
+                      <input type="text" name="telefone" class="form-control" id="exampleInputEmail1"  placeholder="(11) 11111-1111" onkeypress="mascara(this, '## #####-####')"  maxlength="13" value="<?php echo $row['telefone'] ?>" required>
                     </div>
                     <div class="form-group col-md-3">
                       <label for="exampleInputEmail1">CPF</label>
-                      <input type="text" name="cpf" class="form-control" id="exampleInputEmail1" placeholder="111.111.111-11" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" required>
+                      <input type="text" name="cpf" class="form-control" id="exampleInputEmail1" placeholder="111.111.111-11" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" value="<?php echo $row['cpf'] ?>" required>
                     </div>
                   </div>
                 </div>
@@ -94,24 +103,24 @@
                   <div class="row">
                       <div class="form-group col-md-12">
                         <label for="exampleInputEmail1">Endereço</label>
-                        <input type="text" name="endereco" class="form-control" id="exampleInputEmail1" placeholder="Av. Rio Branco" required>
+                        <input type="text" name="endereco" class="form-control" id="exampleInputEmail1" placeholder="Av. Rio Branco" value="<?php echo $row['endereco'] ?>" required>
                       </div>
                   </div> 
                   <div class="row">
                       <div class="form-group col-md-12">
                         <label for="exampleInputEmail1">Complemento</label>
-                        <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Apartmento, estudio, or andar">
+                        <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Apartmento, estudio, or andar" value="<?php echo $row['complemento'] ?>">
                       </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-md-6">
                       <label for="exampleInputEmail1">Cidade</label>
-                      <input type="text" name="cidade" class="form-control" id="inputCity" placeholder="Juiz de Fora" required>
+                      <input type="text" name="cidade" class="form-control" id="inputCity" placeholder="Juiz de Fora" value="<?php echo $row['cidade'] ?>" required>
 
                     </div>
                     <div class="form-group col-md-3">
                       <label>Estado</label>
-                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="estado">
+                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="estado" value="<?php echo $row['estado'] ?>">
                         <option selected>AC</option>
                         <option>AL</option>
                         <option>AP</option>
@@ -143,7 +152,7 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputZip">CEP</label>
-                      <input type="text" name="cep" class="form-control" id="cep" onkeypress="mascara(this, '##.###-###')" placeholder="11.111-111" maxlength="10" required>
+                      <input type="text" name="cep" class="form-control" id="cep" onkeypress="mascara(this, '##.###-###')" placeholder="11.111-111" maxlength="10" value="<?php echo $row['cep'] ?>" required>
                     </div>
                   </div> 
                 </div>  
@@ -152,6 +161,7 @@
                   <button type="submit" name="submit" class="btn btn-secondary">Enviar</button>
                 </div>
               </form>
+            <?php } ?>
             </div>
           </div>
     <?php 
@@ -170,13 +180,13 @@
         $estado = $_POST['estado'];
         $cep = $_POST['cep'];
 
-        $sql = "insert into usuarios (email,senha,tipo,nome,telefone,cpf,endereco,complemento,cidade,estado,cep) values ('$email','$senha','$tipo','$nome','$telefone','$cpf','$endereco','$complemento','$cidade','$estado','$cep')";
+        $sql = "UPDATE usuarios SET email = '$email', senha = '$senha', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = 'endereco', complemento = 'complemento', cidade = '$cidade', estado = '$estado', cep = '$cep' WHERE id = '$id'";
         $salvar = mysqli_query($conexao,$sql);
 
         if($salvar){
             ?>
             <script language="JavaScript"> 
-              alert("Usuário cadastrado com sucesso!");
+              alert("Usuário editado com sucesso!");
               window.location.replace('listaUsuario.php');
             </script>
             <?php

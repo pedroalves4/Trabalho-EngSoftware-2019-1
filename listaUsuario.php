@@ -1,7 +1,20 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 <?php 
-$sql = "SELECT * FROM usuarios ORDER BY nome ASC"; //buscando todos usuarios
+if (isset($_GET["order"])){
+  if($_GET["order"]=="ASC"){
+    $sql = "SELECT * FROM usuarios ORDER BY nome ASC"; 
+    $order = "ASC";
+  }
+  else{
+    $sql = "SELECT * FROM usuarios ORDER BY id ASC";
+    $order = 2;
+  }
+}else{
+  $sql = "SELECT * FROM usuarios ORDER BY id ASC"; //buscando todos usuarios ordenados por ordem alfabetica
+  $order = 2;
+}
+
 $result = $conexao->query($sql);
 ?>
 
@@ -15,7 +28,18 @@ $result = $conexao->query($sql);
             <h1 class="m-0 text-dark">Usuários</h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
-          </div><!-- vazio para alinhar botao de adicionar à esquerda -->  
+          <?php
+            if($order!="ASC"){
+          ?>
+              <a href="listaUsuario.php?order=ASC"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-up"></i> Clique para ordem alfabética </button></a>
+          <?php
+            }else{
+          ?>
+              <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-up"></i> Clique para retirar ordem alfabética </button></a>
+          <?php
+            }
+          ?>  
+          </div>
           <div class="col-sm-2">
             <a href="insertUsuario.php"><button type="button" class="btn btn-block btn-success"><i class="nav-icon fa fa-plus"></i> Adicionar</button></a>
           </div><!-- /.col -->
@@ -61,7 +85,7 @@ $result = $conexao->query($sql);
                       echo "<td>" .$row["cidade"] . "</td>"; 
                       echo "<td>" .$row["cep"] . "</td>"; 
                       ?>
-                      <td><a href="#" style="text-decoration: none;color: #000;"><i class="fa fa-edit"></i></a></td>
+                      <td><a href="updateUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;"><i class="fa fa-edit"></i></a></td>
                       <td><a href="deleteUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;"><i class="fa fa-trash"></i></a></td>
                       <?php
                       echo "<tr>";
