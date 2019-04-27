@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26-Abr-2019 às 01:36
+-- Generation Time: 27-Abr-2019 às 03:11
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -48,8 +48,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `senha`, `tipo`, `nome`, `telefone`, `cpf`, `endereco`, `complemento`, `cidade`, `estado`, `cep`) VALUES
-(1, 'ruan@ruan.com', 'a', 'Admin', 'Ruan Ruan', '11 11111-111', '111.111.111-11', 'Rua do Buraco', 'Apartamento sem teto', 'Juiz de Fora', 'MG', '22.222-222'),
-(4, 'mail@google.com', '123456', 'Cliente', 'Mail', '12 34567-891', '123.456.789-10', 'Rua de Teste', '', 'Testando a Cidade', 'MS', '12.345-678');
+(1, 'ruan@ruan.com', 'a', 'Cliente', 'Ruan Ruan', '11 11111-111', '111.111.111-11', 'Rua de Teste', 'Andar Segundo', 'Juiz de Fora', 'GO', '22.222-222'),
+(5, 'teste@teste.com', 'teste', 'Admin', 'Seu Ze', '32 23232-323', '123.456.789-10', 'Rua do Lojao', '3o Andar', 'Juiz de Fora', 'MG', '36.037-010'),
+(4, 'mail@google.com', '123456', 'Cliente', 'Outro de Teste', '12 34567-891', '123.456.789-10', 'Av. das Ostras', 'Em frente Ã  igreja renascer', 'SÃ£o LuÃ­s', 'MA', '12.345-678');
 
 --
 -- Indexes for dumped tables
@@ -69,7 +70,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
