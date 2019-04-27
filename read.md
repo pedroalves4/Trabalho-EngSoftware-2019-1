@@ -20,8 +20,8 @@ Só para os devs de plantão:
 - Para criar algum arquivo relacionado à um crud, utilizar a nomenclatura:
         - Listas : "listaUsuario"
         - Visualização : "viewUsuario"
-        - Edição : "listaUsuario"
-        - Exclusão : "listaUsuario"
+        - Edição : "updateUsuario"
+        - Exclusão : "deleteUsuario"
 
 - Nome do bd : lojaze
     
