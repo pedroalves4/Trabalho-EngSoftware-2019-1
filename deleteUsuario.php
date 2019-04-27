@@ -7,11 +7,11 @@
 	if($result){?>
 		<script language="JavaScript">
 			alert("Êxito ao excluir o usuário!");
-			window.location.replace('usuarios.php');
+			window.location.replace('listaUsuario.php');
 		</script>				
 	<?php }else{?>	
 		<script language="JavaScript">
 			alert("Erro ao excluir o usuário!");
-			window.location.replace('usuarios.php');
+			window.location.replace('listaUsuario.php');
 		</script>
 	<?php } ?>	
