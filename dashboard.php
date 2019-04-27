@@ -15,7 +15,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="Imagem Usuário">
         </div>
         <div class="info">
-          <a href="#"> <?php echo $_SESSION['nome'] ; ?></a> <a href="logout.php"><i data-toggle="tooltip" title="Logout " class="fa fa-user-times"></i></a>
+          <a href="viewUsuario.php?id=<?php echo $_SESSION['id'] ?>"> <?php echo $_SESSION['nome'] ; ?></a> <a href="logout.php"><i data-toggle="tooltip" title="Logout " class="fa fa-sign-out-alt"></i></a>
           <span class="brand-text font-weight-light d-block" style="color: #FFF;"> <?php echo $_SESSION['tipo']; ?></span>
         </div>
       </div>
@@ -27,7 +27,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="index.php" class="nav-link">
-              <i class="nav-icon fa fa-dashboard"></i>
+              <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
                 Dashboard
                 <!--<span class="right badge badge-danger">New</span>-->

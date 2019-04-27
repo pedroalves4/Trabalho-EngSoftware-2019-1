@@ -31,11 +31,11 @@ $result = $conexao->query($sql);
           <?php
             if($order!="ASC"){
           ?>
-              <a href="listaUsuario.php?order=ASC"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-up"></i> Clique para ordem alfabética </button></a>
+              <a href="listaUsuario.php?order=ASC"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fas fa-sort-alpha-down"></i> Clique para ordem alfabética </button></a>
           <?php
             }else{
           ?>
-              <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-up"></i> Clique para retirar ordem alfabética </button></a>
+              <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-minus-circle"></i> Clique para retirar ordem alfabética </button></a>
           <?php
             }
           ?>  
@@ -73,22 +73,22 @@ $result = $conexao->query($sql);
               <tbody>
                 <?php 
                 if ($result->num_rows > 0) {
-                  // output data of each row
                     while ($row = $result->fetch_assoc()) {
-                     echo "<tr>";
-                      echo "<td>" .$row["nome"] . "</td>"; 
-                      echo "<td>" .$row["email"] . "</td> ";
-                      echo "<td>" .$row["tipo"] . "</td>";  
-                      echo "<td>" .$row["telefone"] . "</td> "; 
-                      echo "<td>" .$row["cpf"] . "</td>";
-                      echo "<td>" .$row["estado"] . "</td>"; 
-                      echo "<td>" .$row["cidade"] . "</td>"; 
-                      echo "<td>" .$row["cep"] . "</td>"; 
+                        echo "<tr href='viewUsuario.php?id=".$row['id']."' >";
+                        echo "<td>" .$row["nome"] . "</td>"; 
+                        echo "<td>" .$row["email"] . "</td> ";
+                        echo "<td>" .$row["tipo"] . "</td>";  
+                        echo "<td>" .$row["telefone"] . "</td> "; 
+                        echo "<td>" .$row["cpf"] . "</td>";
+                        echo "<td>" .$row["estado"] . "</td>"; 
+                        echo "<td>" .$row["cidade"] . "</td>"; 
+                        echo "<td>" .$row["cep"] . "</td>"; 
                       ?>
-                      <td><a href="updateUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;"><i class="fa fa-edit"></i></a></td>
-                      <td><a href="deleteUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;"><i class="fa fa-trash"></i></a></td>
+                        <td><a href="viewUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
+                        <td><a href="updateUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
+                        <td><a href="deleteUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Excluir"><i class="fa fa-trash"></i></a></td>
                       <?php
-                      echo "<tr>";
+                      echo "</tr>";
                     }  
                 }    
                 ?>

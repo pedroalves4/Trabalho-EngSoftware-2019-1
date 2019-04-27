@@ -72,7 +72,6 @@
                         <div class="col-8">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember">
-
                                 <label class="form-check-label" for="remember">
                                     Lembre-me
                                 </label>
@@ -83,14 +82,6 @@
                         </div>
                     </div>
                 </form>
-
-                <hr>
-
-                <p class="mb-1">
-                        <a href="{{ route('password.request') }}">
-                            Esqueceu sua senha?
-                        </a>
-                </p>
             </div>
         </div>
     </div>

@@ -24,8 +24,11 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Cadastro de Usuário</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-3">
           </div><!-- nada aqui -->  
+          <div class="col-sm-3">
+            <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem cadastrar</button></a>
+          </div> 
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

@@ -9,6 +9,7 @@
 				while ($row = $result->fetch_assoc()) {
 					 $nome = $row["nome"];
 					 $tipo = $row["tipo"];
+					 $id = $row["id"];
 				} // query para pegar nome e tipo do usuario e exibir no dashboard
 
 		if($result->num_rows < 1){
@@ -33,6 +34,8 @@
 			$_SESSION['senha'] = $senha;
 			$_SESSION['nome'] = $nome;
 			$_SESSION['tipo'] = $tipo;
+			$_SESSION['id'] = $id;
+
 			echo "<script language='javascript' type'text/javascript'>
 					alert('Bem vindo, $nome!');
 					window.location.replace('index.php');

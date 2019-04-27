@@ -24,8 +24,11 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Editor de Usuário</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-3">
           </div><!-- nada aqui -->  
+          <div class="col-sm-3">
+            <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem editar</button></a>
+          </div>  
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -68,10 +71,12 @@
                     <div class="form-group col-md-3">
                       <label>Tipo de Usuário</label>
                       <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
-                        <option>Cliente</option>
+                        <option <?php if($row['tipo']=="Cliente")echo "selected" ?> >Cliente</option>
                         <?php 
                           if(isset($_SESSION['email']) && $_SESSION['tipo']=="Admin"){
-                              echo "<option>Admin</option>";    
+                        ?>    
+                            <option <?php if($row['tipo']=="Admin")echo "selected" ?>>Admin</option>    
+                        <?php
                           }else{
                             echo"<option disabled>Admin</option>";
                           }
@@ -120,34 +125,34 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label>Estado</label>
-                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="estado" value="<?php echo $row['estado'] ?>">
-                        <option selected>AC</option>
-                        <option>AL</option>
-                        <option>AP</option>
-                        <option>AM</option>
-                        <option>BA</option>
-                        <option>CE</option>
-                        <option>DF</option>
-                        <option>ES</option>
-                        <option>GO</option>
-                        <option>MA</option>
-                        <option>MT</option>
-                        <option>MS</option>
-                        <option>MG</option>
-                        <option>PA</option>
-                        <option>PB</option>
-                        <option>PR</option>
-                        <option>PE</option>
-                        <option>PI</option>
-                        <option>RJ</option>
-                        <option>RN</option>
-                        <option>RS</option>
-                        <option>RO</option>
-                        <option>RR</option>
-                        <option>SC</option>
-                        <option>SP</option>
-                        <option>SE</option>
-                        <option>TO</option>
+                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="estado" selected="<?php echo $row['estado'] ?>">
+                        <option <?php if($row['estado']=="AC")echo "selected" ?> >AC</option>
+                        <option <?php if($row['estado']=="AL")echo "selected" ?> >AL</option>
+                        <option <?php if($row['estado']=="AP")echo "selected" ?> >AP</option>
+                        <option <?php if($row['estado']=="AM")echo "selected" ?> >AM</option>
+                        <option <?php if($row['estado']=="BA")echo "selected" ?> >BA</option>
+                        <option <?php if($row['estado']=="CE")echo "selected" ?> >CE</option>
+                        <option <?php if($row['estado']=="DF")echo "selected" ?> >DF</option>
+                        <option <?php if($row['estado']=="ES")echo "selected" ?> >ES</option>
+                        <option <?php if($row['estado']=="GO")echo "selected" ?> >GO</option>
+                        <option <?php if($row['estado']=="MA")echo "selected" ?> >MA</option>
+                        <option <?php if($row['estado']=="MT")echo "selected" ?> >MT</option>
+                        <option <?php if($row['estado']=="MS")echo "selected" ?> >MS</option>
+                        <option <?php if($row['estado']=="MG")echo "selected" ?> >MG</option>
+                        <option <?php if($row['estado']=="PA")echo "selected" ?> >PA</option>
+                        <option <?php if($row['estado']=="PB")echo "selected" ?> >PB</option>
+                        <option <?php if($row['estado']=="PR")echo "selected" ?> >PR</option>
+                        <option <?php if($row['estado']=="PE")echo "selected" ?> >PE</option>
+                        <option <?php if($row['estado']=="PI")echo "selected" ?> >PI</option>
+                        <option <?php if($row['estado']=="RJ")echo "selected" ?> >RJ</option>
+                        <option <?php if($row['estado']=="RN")echo "selected" ?> >RN</option>
+                        <option <?php if($row['estado']=="RS")echo "selected" ?> >RS</option>
+                        <option <?php if($row['estado']=="RO")echo "selected" ?> >RO</option>
+                        <option <?php if($row['estado']=="RR")echo "selected" ?> >RR</option>
+                        <option <?php if($row['estado']=="SC")echo "selected" ?> >SC</option>
+                        <option <?php if($row['estado']=="SP")echo "selected" ?> >SP</option>
+                        <option <?php if($row['estado']=="SE")echo "selected" ?> >SE</option>
+                        <option <?php if($row['estado']=="TO")echo "selected" ?> >TO</option>
                       </select>
                     </div>
                     <div class="form-group col-md-3">
