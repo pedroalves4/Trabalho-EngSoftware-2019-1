@@ -1,6 +1,13 @@
   <?php include ('header.php'); ?>
   <?php include ('dashboard.php'); ?>
-  
+  <?php
+    $contadorUsuario = "SELECT count(*) cc FROM usuarios";
+    $resultUsuario = $conexao->query($contadorUsuario);
+    $rowUsuario = $resultUsuario->fetch_assoc();
+    //printf("%d", $rowUsuario['cc']);
+  ?>
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) --> 
@@ -57,7 +64,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3><?php printf("%d", $rowUsuario['cc']); ?></h3>
 
                 <p>Usuários</p>
               </div>
