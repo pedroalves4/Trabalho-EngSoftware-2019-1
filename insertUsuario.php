@@ -52,12 +52,12 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group col-md-5">
-                      <label for="exampleInputEmail1">Email</label>
-                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Digite o email" required>
+                      <label for="inputEmail">Email</label>
+                      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Digite o email" required>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="exampleInputPassword1">Senha</label>
-                      <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite a senha" required>
+                      <label for="inputSenha">Senha</label>
+                      <input type="password" name="senha" class="form-control" id="inputSenha" placeholder="Digite a senha" required>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Tipo de Usuário</label>
@@ -75,16 +75,16 @@
                   </div> 
                   <div class="row">
                     <div class="form-group col-md-5">
-                      <label for="exampleInputEmail1">Nome</label>
-                      <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+                      <label for="inputNome">Nome</label>
+                      <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Enter email" required>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="exampleInputEmail1">Telefone</label>
-                      <input type="text" name="telefone" class="form-control" id="exampleInputEmail1"  placeholder="(11) 11111-1111" onkeypress="mascara(this, '## #####-####')"  maxlength="13" required>
+                      <label for="inputTelefone">Telefone</label>
+                      <input type="text" name="telefone" class="form-control" id="inputTelefone"  placeholder="(11) 11111-1111" onkeypress="mascara(this, '## #####-####')"  maxlength="13" required>
                     </div>
                     <div class="form-group col-md-3">
-                      <label for="exampleInputEmail1">CPF</label>
-                      <input type="text" name="cpf" class="form-control" id="exampleInputEmail1" placeholder="111.111.111-11" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" required>
+                      <label for="inputCPF">CPF</label>
+                      <input type="text" name="cpf" class="form-control" id="inputCPF" placeholder="111.111.111-11" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" required>
                     </div>
                   </div>
                 </div>
@@ -96,20 +96,20 @@
                 <div class="card-body">
                   <div class="row">
                       <div class="form-group col-md-12">
-                        <label for="exampleInputEmail1">Endereço</label>
-                        <input type="text" name="endereco" class="form-control" id="exampleInputEmail1" placeholder="Av. Rio Branco" required>
+                        <label for="inputEndereco">Endereço</label>
+                        <input type="text" name="endereco" class="form-control" id="inputEndereco" placeholder="Av. Rio Branco" required>
                       </div>
                   </div> 
                   <div class="row">
                       <div class="form-group col-md-12">
-                        <label for="exampleInputEmail1">Complemento</label>
-                        <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Apartmento, estudio, or andar">
+                        <label for="inputComplemento">Complemento</label>
+                        <input type="text" name="complemento" class="form-control" id="inputComplemento" placeholder="Apartmento, estudio, or andar">
                       </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-md-6">
-                      <label for="exampleInputEmail1">Cidade</label>
-                      <input type="text" name="cidade" class="form-control" id="inputCity" placeholder="Juiz de Fora" required>
+                      <label for="inputCidade">Cidade</label>
+                      <input type="text" name="cidade" class="form-control" id="inputCidade" placeholder="Juiz de Fora" required>
 
                     </div>
                     <div class="form-group col-md-3">
@@ -145,8 +145,8 @@
                       </select>
                     </div>
                     <div class="form-group col-md-3">
-                      <label for="inputZip">CEP</label>
-                      <input type="text" name="cep" class="form-control" id="cep" onkeypress="mascara(this, '##.###-###')" placeholder="11.111-111" maxlength="10" required>
+                      <label for="inputCEP">CEP</label>
+                      <input type="text" name="cep" class="form-control" id="inputCEP" onkeypress="mascara(this, '##.###-###')" placeholder="11.111-111" maxlength="10" required>
                     </div>
                   </div> 
                 </div>  

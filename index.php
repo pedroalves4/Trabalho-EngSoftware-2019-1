@@ -4,7 +4,6 @@
     $contadorUsuario = "SELECT count(*) cc FROM usuarios";
     $resultUsuario = $conexao->query($contadorUsuario);
     $rowUsuario = $resultUsuario->fetch_assoc();
-    //printf("%d", $rowUsuario['cc']);
   ?>
 
 
@@ -64,14 +63,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php printf("%d", $rowUsuario['cc']); ?></h3>
+                <h3><?php echo $rowUsuario['cc'] ; ?></h3>
 
                 <p>Usuários</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="listaUsuario.php" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
