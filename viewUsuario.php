@@ -136,9 +136,4 @@
   </div>
 <!-- /.content-wrapper -->
 
-<script>
-	console.log(' pathname => ' + window.location.pathname);
-	console.log(' search=> ' + window.location.search);
-</script>
-
 <?php require ('footer.php');?>

@@ -86,7 +86,7 @@ $result = $conexao->query($sql);
                       ?>
                         <td><a href="viewUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
                         <td><a href="updateUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
-                        <td><a href="deleteUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Excluir"><i class="fa fa-trash"></i></a></td>
+                        <td><a href="#" onclick="excluir(<?php echo $row['id'];?>)" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Excluir"><i class="fa fa-trash"></i></a></td>
                       <?php
                       echo "</tr>";
                     }  
@@ -102,5 +102,19 @@ $result = $conexao->query($sql);
     </section><!-- /.content -->
   </div>
 <!-- /.content-wrapper -->
+<script>
+ //href="deleteUsuario.php?id=// echo $row['id'];?>"
+function excluir(id){
+  console.log();
+  var r = confirm("Tem certeza que deseja excluir esse usuário?");
+  if (r == true) {
+    window.location.replace('deleteusuario.php?id='+id);
+  } else {
+    
+  }
+}
+ 
+
+</script>
 
 <?php require ('footer.php');?>
