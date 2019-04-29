@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Abr-2019 às 03:11
+-- Generation Time: 29-Abr-2019 às 15:43
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -48,9 +48,25 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `senha`, `tipo`, `nome`, `telefone`, `cpf`, `endereco`, `complemento`, `cidade`, `estado`, `cep`) VALUES
-(1, 'ruan@ruan.com', 'a', 'Cliente', 'Ruan Ruan', '11 11111-111', '111.111.111-11', 'Rua de Teste', 'Andar Segundo', 'Juiz de Fora', 'GO', '22.222-222'),
+(9, 'teste1@teste.com', 'teste', 'Cliente', 'Fulano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
 (5, 'teste@teste.com', 'teste', 'Admin', 'Seu Ze', '32 23232-323', '123.456.789-10', 'Rua do Lojao', '3o Andar', 'Juiz de Fora', 'MG', '36.037-010'),
-(4, 'mail@google.com', '123456', 'Cliente', 'Outro de Teste', '12 34567-891', '123.456.789-10', 'Av. das Ostras', 'Em frente Ã  igreja renascer', 'SÃ£o LuÃ­s', 'MA', '12.345-678');
+(10, 'teste2@teste.com', 'teste', 'Cliente', 'Sicrano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(11, 'teste3@teste.com', 'teste', 'Cliente', 'Beltrano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(12, 'teste4@teste.com', 'teste', 'Cliente', 'Fulano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(13, 'teste5@teste.com', 'teste', 'Cliente', 'Jose', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(14, 'teste6@teste.com', 'teste', 'Cliente', 'Joao', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(15, 'teste7@teste.com', 'teste', 'Cliente', 'Maria', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(16, 'teste8@teste.com', 'teste', 'Cliente', 'Ana', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(17, 'teste9@teste.com', 'teste', 'Cliente', 'Paulo', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(18, 'teste10@teste.com', 'teste', 'Cliente', 'Felipe', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(19, 'teste11@teste.com', 'teste', 'Cliente', 'Mateus', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(20, 'teste12@teste.com', 'teste', 'Cliente', 'Antonia', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(21, 'teste13@teste.com', 'teste', 'Cliente', 'Paula', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(22, 'teste14@teste.com', 'teste', 'Cliente', 'Carolina', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(23, 'teste15@teste.com', 'teste', 'Cliente', 'Lucas', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(24, 'teste16@teste.com', 'teste', 'Cliente', 'Julia', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(25, 'teste17@teste.com', 'teste', 'Cliente', 'Pedro', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038'),
+(26, 'teste18@teste.com', 'teste', 'Cliente', 'Antonio', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038');
 
 --
 -- Indexes for dumped tables
@@ -70,7 +86,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
