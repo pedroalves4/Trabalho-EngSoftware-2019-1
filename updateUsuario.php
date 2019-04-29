@@ -163,7 +163,7 @@
                 </div>  
 
                 <div class="card-footer">
-                  <button type="submit" name="submit" class="btn btn-secondary">Enviar</button>
+                  <button type="submit" name="submit" class="btn btn-secondary">Salvar</button>
                 </div>
               </form>
             <?php } ?>

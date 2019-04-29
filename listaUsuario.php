@@ -61,11 +61,6 @@ $result = $conexao->query($sql);
                   <th>Nome</th>
                   <th>Email</th>
                   <th>Tipo</th>
-                  <th>Telefone</th>
-                  <th>CPF</th>
-                  <th>Estado</th>
-                  <th>Cidade</th>
-                  <th>CEP</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -78,11 +73,6 @@ $result = $conexao->query($sql);
                         echo "<td>" .$row["nome"] . "</td>"; 
                         echo "<td>" .$row["email"] . "</td> ";
                         echo "<td>" .$row["tipo"] . "</td>";  
-                        echo "<td>" .$row["telefone"] . "</td> "; 
-                        echo "<td>" .$row["cpf"] . "</td>";
-                        echo "<td>" .$row["estado"] . "</td>"; 
-                        echo "<td>" .$row["cidade"] . "</td>"; 
-                        echo "<td>" .$row["cep"] . "</td>"; 
                       ?>
                         <td><a href="viewUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
                         <td><a href="updateUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
@@ -103,7 +93,6 @@ $result = $conexao->query($sql);
   </div>
 <!-- /.content-wrapper -->
 <script>
- //href="deleteUsuario.php?id=// echo $row['id'];?>"
 function excluir(id){
   console.log();
   var r = confirm("Tem certeza que deseja excluir esse usuário?");
@@ -113,8 +102,6 @@ function excluir(id){
     
   }
 }
- 
-
 </script>
 
 <?php require ('footer.php');?>
