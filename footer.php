@@ -51,5 +51,7 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<!-- Data Tables -->
+<script type="text/javascript" charset="utf8" src="plugins/datatables/jquery.dataTables.js"></script>
 </body>
 </html>
