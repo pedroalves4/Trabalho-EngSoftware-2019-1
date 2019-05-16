@@ -30,17 +30,6 @@ $result = $conexao->query($sql);
           <div class="col-sm-3">
           </div>
           <div class="col-sm-4">
-          <?php
-            if($order!="ASC"){
-          ?>
-              <a href="listaUsuario.php?order=ASC"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fas fa-sort-alpha-down"></i> Clique para ordem alfabética </button></a>
-          <?php
-            }else{
-          ?>
-              <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-minus-circle"></i> Clique para retirar ordem alfabética </button></a>
-          <?php
-            }
-          ?>  
           </div>
           <div class="col-sm-2">
             <a href="insertUsuario.php"><button type="button" class="btn btn-block btn-success"><i class="nav-icon fa fa-plus"></i> Adicionar</button></a>
