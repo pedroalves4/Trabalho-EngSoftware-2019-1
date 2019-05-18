@@ -61,8 +61,8 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label>Tipo de Usuário</label>
-                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
-                        <option>Cliente</option>
+                      <select id="role-selector" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
+                        <option value="cliente">Cliente</option>
                         <?php 
                           if(isset($_SESSION['email']) && $_SESSION['tipo']=="Admin"){
                               echo "<option>Admin</option>";    
@@ -85,6 +85,12 @@
                     <div class="form-group col-md-3">
                       <label for="inputCPF">CPF</label>
                       <input type="text" name="cpf" class="form-control" id="inputCPF" placeholder="111.111.111-11" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" required>
+                    </div>
+                  </div>
+                  <div id="showcliente" class="row">
+                    <div class="col-md-3">
+                      <label for="inputCNPJ">CNPJ</label>
+                      <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="11.111.111/1111-11" onkeypress="mascara(this, '##.###.###/####-##')"  maxlength="14" required>
                     </div>
                   </div>
                 </div>
@@ -172,8 +178,9 @@
         $cidade = $_POST['cidade'];
         $estado = $_POST['estado'];
         $cep = $_POST['cep'];
+        $cnpj = $_POST['cnpj'];
 
-        $sql = "insert into usuarios (email,senha,tipo,nome,telefone,cpf,endereco,complemento,cidade,estado,cep) values ('$email','$senha','$tipo','$nome','$telefone','$cpf','$endereco','$complemento','$cidade','$estado','$cep')";
+        $sql = "insert into usuarios (email,senha,tipo,nome,telefone,cpf,endereco,complemento,cidade,estado,cep) values ('$email','$senha','$tipo','$nome','$telefone','$cpf','$endereco','$complemento','$cidade','$estado','$cep', $cnpj)";
         $salvar = mysqli_query($conexao,$sql);
 
         if($salvar){

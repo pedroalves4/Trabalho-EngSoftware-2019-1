@@ -53,5 +53,16 @@
 <script src="dist/js/demo.js"></script>
 <!-- Data Tables -->
 <script type="text/javascript" charset="utf8" src="plugins/datatables/jquery.dataTables.js"></script>
+
+<script>
+
+$(function() {
+        $('#role-selector').change(function(){
+            var demovalue = $(this).val(); 
+            $('#showcliente').hide();
+            $("#show"+demovalue).show();
+        });
+    });
+</script>
 </body>
 </html>

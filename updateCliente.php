@@ -72,15 +72,6 @@
                       <label>Tipo de Usuário</label>
                       <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
                         <option <?php if($row['tipo']=="Cliente")echo "selected" ?> >Cliente</option>
-                        <?php 
-                          if(isset($_SESSION['email']) && $_SESSION['tipo']=="Admin"){
-                        ?>    
-                            <option <?php if($row['tipo']=="Admin")echo "selected" ?>>Admin</option>    
-                        <?php
-                          }else{
-                            echo"<option disabled>Admin</option>";
-                          }
-                         ?>
                       </select>
                     </div>    
                   </div> 
