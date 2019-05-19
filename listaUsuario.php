@@ -54,7 +54,14 @@ $result = $conexao->query($sql);
                         echo "<td>" .$row["tipo"] . "</td>";  
                       ?>
                         <td><a href="viewUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
+                        <?php if($row['tipo'] == 'Cliente') { ?>
+                        <td><a href="updateCliente.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
+                        <?php } elseif($row['tipo'] != 'Cliente' && $row['tipo'] != 'Funcionario') { ?>
                         <td><a href="updateUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
+                        <?php } ?>
+                        <?php if($row['tipo'] == 'Funcionario') { ?>
+                        <td><a href="updateFuncionario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
+                        <?php } ?>
                         <td><a href="#" onclick="excluir(<?php echo $row['id'];?>)" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Excluir"><i class="fa fa-trash"></i></a></td>
                       <?php
                       echo "</tr>";

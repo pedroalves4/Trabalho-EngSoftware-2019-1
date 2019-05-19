@@ -90,7 +90,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-5">
                       <label for="inputCNPJ">CNPJ</label>
                       <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="11.111.111/1111-11" onkeypress="mascara(this, '##.###.###/####-##')" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" value="<?php echo $row['cnpj'] ?>" required>
                     </div>

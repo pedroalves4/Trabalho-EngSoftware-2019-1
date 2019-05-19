@@ -22,12 +22,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Editor de Usuário</h1>
+            <h1 class="m-0 text-dark">Editor de Cliente</h1>
           </div><!-- /.col -->
           <div class="col-sm-3">
           </div><!-- nada aqui -->  
           <div class="col-sm-3">
-            <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem editar</button></a>
+            <a href="listaClientes.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem editar</button></a>
           </div>  
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -71,16 +71,7 @@
                     <div class="form-group col-md-3">
                       <label>Tipo de Usuário</label>
                       <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
-                        <option <?php if($row['tipo']=="Cliente")echo "selected" ?> >Cliente</option>
-                        <?php 
-                          if(isset($_SESSION['email']) && $_SESSION['tipo']=="Admin"){
-                        ?>    
-                            <option <?php if($row['tipo']=="Admin")echo "selected" ?>>Admin</option>    
-                        <?php
-                          }else{
-                            echo"<option disabled>Admin</option>";
-                          }
-                         ?>
+                        <option <?php if($row['tipo']=="Funcionario")echo "selected" ?> >Funcionario</option>
                       </select>
                     </div>    
                   </div> 
@@ -100,8 +91,19 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-md-5">
-                      <label for="inputCPF">CNPJ</label>
-                      <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="11.111.111/1111-11" onkeypress="mascara(this, '##.###.###/####-##')" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" value="<?php echo $row['cnpj'] ?>" required>
+                      <label for="inputCNPJ">Numero de identificação</label>
+                      <input type="text" name="nid" class="form-control"  id="inputNID" placeholder="0011" value="<?php echo $row['nid'] ?>" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputCNPJ">Salário</label>
+                      <input type="text" name="salario" class="form-control" id="inputCNPJ" id="inputSalario" placeholder="2200.01" value="<?php echo $row['salario'] ?>" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputCNPJ">Cargo</label>
+                      <select id="cargo" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="cargo">
+                      <option <?php if($row['cargo']=="Admin")echo "selected" ?>>Admin</option>
+                      <option <?php if($row['cargo']=="Vendedor")echo "selected" ?>>Vendedor</option>
+                    </select>
                     </div>
                   </div>
                 </div>
@@ -190,10 +192,12 @@
         $cidade = $_POST['cidade'];
         $estado = $_POST['estado'];
         $cep = $_POST['cep'];
-        $cnpj = $_POST['cnpj'];
+        $nid = $_POST['nid'];
+        $salario = $_POST['salario'];
+        $cargo = $_POST['cargo'];
 
         //$sql = "UPDATE usuarios SET email = '$email', senha = '$senha', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = 'endereco', complemento = 'complemento', cidade = '$cidade', estado = '$estado', cep = '$cep' WHERE id = '$id'";
-        $sql = "UPDATE usuarios SET email = '$email', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = '$endereco', complemento = '$complemento', cidade = '$cidade', estado = '$estado', cep = '$cep', cnpj = '$cnpj' WHERE id = '$id'";
+        $sql = "UPDATE usuarios SET email = '$email', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = '$endereco', complemento = '$complemento', cidade = '$cidade', estado = '$estado', cep = '$cep', nid = '$nid', salario = '$salario', cargo = '$cargo' WHERE id = '$id'";
 
         $salvar = mysqli_query($conexao,$sql);
 
