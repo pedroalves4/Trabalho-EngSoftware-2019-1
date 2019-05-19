@@ -1,20 +1,6 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 
-<script language="JavaScript">
-        function mascara(t, mask)
-        {
-            var i = t.value.length;                
-            var saida = mask.substring(1,0);
-            var texto = mask.substring(i)
-            if (texto.substring(0,1) != saida)
-            {
-                t.value += texto.substring(0,1);
-            }
-        }
-    </script>
-
-
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) --> 
@@ -192,7 +178,6 @@
         $cep = $_POST['cep'];
         $cnpj = $_POST['cnpj'];
 
-        //$sql = "UPDATE usuarios SET email = '$email', senha = '$senha', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = 'endereco', complemento = 'complemento', cidade = '$cidade', estado = '$estado', cep = '$cep' WHERE id = '$id'";
         $sql = "UPDATE usuarios SET email = '$email', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = '$endereco', complemento = '$complemento', cidade = '$cidade', estado = '$estado', cep = '$cep', cnpj = '$cnpj' WHERE id = '$id'";
 
         $salvar = mysqli_query($conexao,$sql);
@@ -206,7 +191,7 @@
             <?php
         }else{
             ?>
-            <script language="JavaScript">alert("Falha ao cadastrar usuário!");</script>
+            <script language="JavaScript">alert("Falha ao editar usuário!");</script>
             <?php
         }
     

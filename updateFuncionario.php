@@ -1,20 +1,6 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 
-<script language="JavaScript">
-        function mascara(t, mask)
-        {
-            var i = t.value.length;                
-            var saida = mask.substring(1,0);
-            var texto = mask.substring(i)
-            if (texto.substring(0,1) != saida)
-            {
-                t.value += texto.substring(0,1);
-            }
-        }
-    </script>
-
-
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) --> 
@@ -22,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Editor de Cliente</h1>
+            <h1 class="m-0 text-dark">Editor de Funcionário</h1>
           </div><!-- /.col -->
           <div class="col-sm-3">
           </div><!-- nada aqui -->  
           <div class="col-sm-3">
-            <a href="listaClientes.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem editar</button></a>
+            <a href="listaFuncionarios.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem editar</button></a>
           </div>  
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -180,9 +166,7 @@
     <?php 
     if(isset($_POST["submit"])){
 
-
         $email = $_POST['email'];
-        //$senha = $_POST['senha'];
         $tipo = $_POST['tipo'];
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];
@@ -196,7 +180,6 @@
         $salario = $_POST['salario'];
         $cargo = $_POST['cargo'];
 
-        //$sql = "UPDATE usuarios SET email = '$email', senha = '$senha', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = 'endereco', complemento = 'complemento', cidade = '$cidade', estado = '$estado', cep = '$cep' WHERE id = '$id'";
         $sql = "UPDATE usuarios SET email = '$email', tipo = '$tipo', nome = '$nome', telefone = '$telefone', cpf = '$cpf', endereco = '$endereco', complemento = '$complemento', cidade = '$cidade', estado = '$estado', cep = '$cep', nid = '$nid', salario = '$salario', cargo = '$cargo' WHERE id = '$id'";
 
         $salvar = mysqli_query($conexao,$sql);
@@ -204,13 +187,13 @@
         if($salvar){
             ?>
             <script language="JavaScript"> 
-              alert("Usuário editado com sucesso!");
-              window.location.replace('listaUsuario.php');
+              alert("Funcionário editado com sucesso!");
+              window.location.replace('listaFuncionario.php');
             </script>
             <?php
         }else{
             ?>
-            <script language="JavaScript">alert("Falha ao cadastrar usuário!");</script>
+            <script language="JavaScript">alert("Falha ao editar funcionário!");</script>
             <?php
         }
     

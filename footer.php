@@ -55,7 +55,6 @@
 <script type="text/javascript" charset="utf8" src="plugins/datatables/jquery.dataTables.js"></script>
 
 <script>
-
 $(function() {
     $('#showcliente').hide();
     $('#showfuncionario').hide();
@@ -68,6 +67,46 @@ $(function() {
         $("#show"+demovalue).show();
     });
 });
+</script>
+<script language="JavaScript">
+  function mascara(t, mask) {
+    var i = t.value.length;
+    var saida = mask.substring(1, 0);
+    var texto = mask.substring(i)
+    if (texto.substring(0, 1) != saida) {
+      t.value += texto.substring(0, 1);
+    }
+  }
+</script>
+<script>
+$(document).ready( function () {
+    $('#tabelinha').DataTable({
+      "language": {
+        "sEmptyTable": "Nenhum registro encontrado",
+        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+        "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+        "sInfoPostFix": "",
+        "sInfoThousands": ".",
+        "sLengthMenu": "_MENU_ resultados por página",
+        "sLoadingRecords": "Carregando...",
+        "sProcessing": "Processando...",
+        "sZeroRecords": "Nenhum registro encontrado",
+        "sSearch": "Pesquisar",
+        "oPaginate": {
+            "sNext": "Próximo",
+            "sPrevious": "Anterior",
+            "sFirst": "Primeiro",
+            "sLast": "Último"
+        },
+        "oAria": {
+            "sSortAscending": ": Ordenar colunas de forma ascendente",
+            "sSortDescending": ": Ordenar colunas de forma descendente"
+        }
+      }
+    });
+    
+} );
 </script>
 </body>
 </html>
