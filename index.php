@@ -91,42 +91,6 @@
           <!-- ./col -->
         </div>
         <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <section class="col-lg-12 connectedSortable">
-
-            <!-- Calendar -->
-            <div class="card bg-success-gradient">
-              <div class="card-header no-border">
-
-                <h3 class="card-title">
-                  <i class="fa fa-calendar"></i>
-                  Calendário
-                </h3>
-                <!-- tools card -->
-                <div class="card-tools">
-                  <button type="button" class="btn btn-success btn-sm" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-success btn-sm" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-                <!-- /. tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
