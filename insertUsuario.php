@@ -74,7 +74,7 @@
                 <div class="row">
                   <div class="form-group col-md-5">
                     <label for="inputNome">Nome</label>
-                    <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Enter email" required>
+                    <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Digite o nome" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputTelefone">Telefone</label>
@@ -88,23 +88,24 @@
                 <div id="showcliente" class="row">
                   <div class="col-md-3">
                     <label for="inputCNPJ">CNPJ</label>
-                    <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="11.111.111/1111-11" onkeypress="mascara(this, '##.###.###/####-##')" maxlength="14" required>
+                    <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="11.111.111/1111-11" onkeypress="mascara(this, '##.###.###/####-##')" maxlength="14">
                   </div>
                 </div>
                 <div id="showfuncionario" class="row">
                   <div class="col-md-3">
                     <label for="inputNID">Numero de identificação</label>
-                    <input type="text" name="nid" class="form-control" id="inputNID" placeholder="0011" required>
+                    <input type="text" name="nid" class="form-control" id="inputNID" placeholder="0011" maxlength="4">
                   </div>
                   <div class="col-md-3">
                     <label for="inputSalario">Salário</label>
-                    <input type="text" name="salario" class="form-control" id="inputSalario" placeholder="2200.01" required>
+                    <input type="text" name="salario" class="form-control" id="inputSalario" placeholder="2200.01" maxlength="12">
                   </div>
                   <div class="form-group col-md-3">
                     <label>Cargo de Funcionário</label>
                     <select id="cargo" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="cargo">
-                      <option value="admin">Admin</option>
+                      <option value="" disabled>Selecione uma Opção<option>
                       <option value="vendedor">Vendedor</option>
+                      <option value="admin">Admin</option>
                     </select>
                   </div>
                 </div>
