@@ -36,7 +36,7 @@
           </li>
           <li class="nav-header">Pessoas</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="listaFuncionarios.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Funcionários

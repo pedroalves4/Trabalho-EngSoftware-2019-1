@@ -1,7 +1,7 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 <?php 
-$sql = "SELECT * FROM usuarios WHERE tipo='Cliente' ORDER BY id ASC";
+$sql = "SELECT * FROM usuarios WHERE tipo='Funcionario' OR tipo='Admin' ORDER BY nid ASC";
 $result = $conexao->query($sql);
 ?>
 
@@ -12,7 +12,7 @@ $result = $conexao->query($sql);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-3">
-            <h1 class="m-0 text-dark">Clientes</h1>
+            <h1 class="m-0 text-dark">Funcionários</h1>
           </div><!-- /.col -->
           <div class="col-sm-3">
           </div>
@@ -37,9 +37,12 @@ $result = $conexao->query($sql);
               <thead>
                 <tr>
                   <th>Nome</th>
-                  <th>CNPJ</th>
+                  <th>CPF</th>
+                  <th>Cargo</th>
+                  <th>Email</th>
                   <th>Estado</th>
                   <th>Cidade</th>
+                  <th>Número de Identificação</th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -51,9 +54,12 @@ $result = $conexao->query($sql);
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr href='viewUsuario.php?id=".$row['id']."' >";
                         echo "<td>" .$row["nome"] . "</td>"; 
-                        echo "<td>" .$row["cnpj"] . "</td> ";
+                        echo "<td>" .$row["cpf"] . "</td> ";
+                        echo "<td>" .$row["cargo"] . "</td>";
+                        echo "<td>" .$row["email"] . "</td>";
                         echo "<td>" .$row["estado"] . "</td>";
                         echo "<td>" .$row["cidade"] . "</td>";  
+                        echo "<td>" .$row["nid"] . "</td>";
                       ?>
                         <td><a href="viewUsuario.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
                         <td><a href="updateCliente.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
@@ -76,7 +82,7 @@ $result = $conexao->query($sql);
 
 <script>
 function excluir(id){
-  var r = confirm("Tem certeza que deseja excluir esse cliente? (O usuário atrelado a ele também será exlcuído)");
+  var r = confirm("Tem certeza que deseja excluir esse funcionário? (O usuário atrelado a ele também será exlcuído)");
   if (r == true) {
     window.location.replace('deleteusuario.php?id='+id);
   } else {

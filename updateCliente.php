@@ -22,12 +22,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Editor de Usuário</h1>
+            <h1 class="m-0 text-dark">Editor de Cliente</h1>
           </div><!-- /.col -->
           <div class="col-sm-3">
           </div><!-- nada aqui -->  
           <div class="col-sm-3">
-            <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem editar</button></a>
+            <a href="listaClientes.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem editar</button></a>
           </div>  
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -91,7 +91,7 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-md-3">
-                      <label for="inputCPF">CPF</label>
+                      <label for="inputCNPJ">CNPJ</label>
                       <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="11.111.111/1111-11" onkeypress="mascara(this, '##.###.###/####-##')" onkeypress="mascara(this, '###.###.###-##')"  maxlength="14" value="<?php echo $row['cnpj'] ?>" required>
                     </div>
                   </div>

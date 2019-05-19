@@ -1,19 +1,6 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 <?php 
-/*if (isset($_GET["order"])){
-  if($_GET["order"]=="ASC"){
-    $sql = "SELECT * FROM usuarios ORDER BY nome ASC"; 
-    $order = "ASC";
-  }
-  else{
-    $sql = "SELECT * FROM usuarios ORDER BY id ASC";
-    $order = 2;
-  }
-}else{
-  $sql = "SELECT * FROM usuarios ORDER BY id ASC"; //buscando todos usuarios ordenados por ordem alfabetica
-  $order = 2;
-}*/
 $sql = "SELECT * FROM usuarios ORDER BY id ASC";
 $result = $conexao->query($sql);
 ?>

@@ -64,10 +64,10 @@
                       <select id="role-selector" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
                         <option value="cliente">Cliente</option>
                         <?php 
-                          if(isset($_SESSION['email']) && $_SESSION['tipo']=="Admin"){
-                              echo "<option>Admin</option>";    
+                          if(isset($_SESSION['email']) && $_SESSION['tipo']=="Admin"){    
+                            echo "<option value='funcionario'>Funcionario</option>";
                           }else{
-                            echo"<option disabled>Admin</option>";
+                            echo"<option disabled>Funcionario</option>";
                           }
                          ?>
                       </select>
@@ -92,6 +92,23 @@
                       <label for="inputCNPJ">CNPJ</label>
                       <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="11.111.111/1111-11" onkeypress="mascara(this, '##.###.###/####-##')"  maxlength="14" required>
                     </div>
+                  </div>
+                  <div id="showfuncionario" class="row">
+                    <div class="col-md-3">
+                      <label for="inputNID">Numero de identificação</label>
+                      <input type="text" name="nid" class="form-control" id="inputNID" placeholder="0011"  required>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="inputSalario">Salário</label>
+                      <input type="text" name="salario" class="form-control" id="inputSalario" placeholder="2200.01"  required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Cargo de Funcionário</label>
+                      <select id="cargo" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="cargo">
+                        <option value="admin">Admin</option>
+                        <option value="vendedor">Vendedor</option>
+                      </select>
+                    </div>  
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -179,8 +196,11 @@
         $estado = $_POST['estado'];
         $cep = $_POST['cep'];
         $cnpj = $_POST['cnpj'];
+        $nid = $_POST['nid'];
+        $salario = $_POST['salario'];
+        $cargo = $_POST['cargo'];
 
-        $sql = "insert into usuarios (email,senha,tipo,nome,telefone,cpf,endereco,complemento,cidade,estado,cep) values ('$email','$senha','$tipo','$nome','$telefone','$cpf','$endereco','$complemento','$cidade','$estado','$cep', $cnpj)";
+        $sql = "insert into usuarios (email,senha,tipo,nome,telefone,cpf,endereco,complemento,cidade,estado,cep,cnpj,nid,salario,cargo) values ('$email','$senha','$tipo','$nome','$telefone','$cpf','$endereco','$complemento','$cidade','$estado','$cep', '$cnpj', '$nid', '$salario', '$cargo')";
         $salvar = mysqli_query($conexao,$sql);
 
         if($salvar){

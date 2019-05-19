@@ -57,12 +57,17 @@
 <script>
 
 $(function() {
-        $('#role-selector').change(function(){
-            var demovalue = $(this).val(); 
-            $('#showcliente').hide();
-            $("#show"+demovalue).show();
-        });
+    $('#showcliente').hide();
+    $('#showfuncionario').hide();
+    var atual = $('#role-selector').val();
+    $('#show'+atual).show();
+    $('#role-selector').change(function(){
+        var demovalue = $(this).val(); 
+        $('#showcliente').hide();
+        $('#showfuncionario').hide();
+        $("#show"+demovalue).show();
     });
+});
 </script>
 </body>
 </html>
