@@ -1,4 +1,6 @@
  <!-- Main Sidebar Container -->
+
+  
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
@@ -34,23 +36,9 @@
               </p>
             </a>
           </li>
+          <?php  if($_SESSION['tipo'] == 'Admin'){ ?>
+          
           <li class="nav-header">Pessoas</li>
-          <li class="nav-item">
-            <a href="listaFuncionarios.php" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
-              <p>
-                Funcionários
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="listaClientes.php" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
-              <p>
-                Clientes
-              </p>
-            </a>
-          </li>
           <li class="nav-item">
             <a href="listaUsuario.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
@@ -59,7 +47,27 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="listaFuncionarios.php" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Funcionários
+              </p>
+            </a>
+          </li>
+          <?php } if($_SESSION['tipo'] == 'Admin' || $_SESSION['tipo'] == 'Funcionario' ){ ?>
+          <li class="nav-item">
+            <a href="listaClientes.php" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Clientes
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Financeiro</li>
+          <?php } if($_SESSION['tipo'] == 'Admin'){ ?> 
+
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-tree"></i>
@@ -68,19 +76,22 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-edit"></i>
-              <p>
-                Produtos
-              </p>
-            </a>
-          </li>
+          <?php } ?>
+          <?php if($_SESSION['tipo'] == 'Admin' || $_SESSION['tipo'] == 'Funcionario' ){ ?> 
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Vendas
+              </p>
+            </a>
+          </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-edit"></i>
+              <p>
+                Produtos
               </p>
             </a>
           </li>

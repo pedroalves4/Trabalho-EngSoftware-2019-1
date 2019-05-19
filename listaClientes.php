@@ -1,6 +1,7 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 <?php 
+if($_SESSION['tipo'] == 'Admin' || $_SESSION['tipo'] == 'Funcionario') {
 $sql = "SELECT * FROM usuarios WHERE tipo='Cliente' ORDER BY id ASC";
 $result = $conexao->query($sql);
 ?>
@@ -117,4 +118,8 @@ $(document).ready( function () {
 </script>
 
 
-<?php require ('footer.php');?>
+<?php } else echo '
+<div class="content-wrapper">
+  <h1 style="padding-left: 30px;"> Acesso não autorizado </h1>
+</div>';
+require ('footer.php');?>
