@@ -166,7 +166,6 @@
 
 
         $email = $_POST['email'];
-        //$senha = $_POST['senha'];
         $tipo = $_POST['tipo'];
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];

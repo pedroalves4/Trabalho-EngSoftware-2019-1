@@ -10,7 +10,8 @@
 					 $nome = $row["nome"];
 					 $tipo = $row["tipo"];
 					 $id = $row["id"];
-				} // query para pegar nome e tipo do usuario e exibir no dashboard
+					 $cargo = $row["cargo"];
+				} // query para pegar dados do usuario e exibir no dashboard
 
 		if($result->num_rows < 1){
 
@@ -35,11 +36,18 @@
 			$_SESSION['nome'] = $nome;
 			$_SESSION['tipo'] = $tipo;
 			$_SESSION['id'] = $id;
+			$_SESSION['cargo'] = $cargo;
 
-			echo "<script language='javascript' type'text/javascript'>
-					alert('Bem vindo, $nome!');
-					window.location.replace('index.php');
-				  </script>";
-        
+			if ($_SESSION['cargo'] == "Administrador"){
+				echo "<script language='javascript' type'text/javascript'>
+						alert('Bem vindo, $nome!');
+						window.location.replace('index.php');
+					</script>";
+			}else{
+				echo "<script language='javascript' type'text/javascript'>
+						alert('Bem vindo, $nome!');
+						window.location.replace('inicio.php');
+					</script>";
+			}
 		}
 ?>

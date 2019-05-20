@@ -1,7 +1,5 @@
  <!-- Main Sidebar Container -->
-
-  
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+ <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
       <img src="dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -25,76 +23,79 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="inicio.php" class="nav-link">
+              <i class="nav-icon fa fa-home"></i>
+              <p>
+                Início
+              </p>
+            </a>
+          </li>     
+          <?php if ($_SESSION['cargo'] == "Administrador") { ?>
           <li class="nav-item">
             <a href="index.php" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <!--<span class="right badge badge-danger">New</span>-->
               </p>
             </a>
           </li>
-          <?php  if($_SESSION['tipo'] == 'Admin'){ ?>
-          
+          <?php } ?>
+          <?php if ($_SESSION['cargo'] == "Administrador") { ?> 
           <li class="nav-header">Pessoas</li>
           <li class="nav-item">
-            <a href="listaUsuario.php" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
-              <p>
-                Usuários
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="listaFuncionarios.php" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-user-lock"></i>
               <p>
                 Funcionários
               </p>
             </a>
           </li>
-          <?php } if($_SESSION['tipo'] == 'Admin' || $_SESSION['tipo'] == 'Funcionario' ){ ?>
           <li class="nav-item">
             <a href="listaClientes.php" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-user-tag"></i>
               <p>
                 Clientes
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="listaUsuario.php" class="nav-link">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Usuários
+              </p>
+            </a>
+          </li>
+         
           <li class="nav-header">Financeiro</li>
-          <?php } if($_SESSION['tipo'] == 'Admin'){ ?> 
-
-          
+          <?php } ?>
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-cubes"></i>
+              <p>
+                Produtos
+              </p>
+            </a>
+          </li>
+          <?php if ($_SESSION['cargo'] == "Administrador") { ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-tree"></i>
+              <i class="nav-icon fa fa-table"></i>
               <p>
                 Setores
               </p>
             </a>
           </li>
-          <?php } ?>
-          <?php if($_SESSION['tipo'] == 'Admin' || $_SESSION['tipo'] == 'Funcionario' ){ ?> 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-table"></i>
+              <i class="nav-icon fa fa-funnel-dollar "></i>
               <p>
                 Vendas
               </p>
             </a>
           </li>
           <?php } ?>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-edit"></i>
-              <p>
-                Produtos
-              </p>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

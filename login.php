@@ -34,7 +34,7 @@
     if(isset($_SESSION['email']) || isset($_SESSION['senha'])){
         $usuario = $_SESSION['email'];
         echo "<script language='javascript' type'text/javascript'>
-                alert('Você já está logado! Usuário ativo: \"$usuario\". Redirecionando para a página de Administração');
+                alert('Você já está logado! Usuário ativo: \"$usuario\". Redirecionando para a página Inicial');
                 window.location.replace('index.php');
             </script>";
     }

@@ -1,7 +1,6 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
-<?php 
-if($_SESSION['tipo'] == 'Admin' || $_SESSION['tipo'] == 'Funcionario') {
+<?php
 $sql = "SELECT * FROM usuarios WHERE tipo='Cliente' ORDER BY id ASC";
 $result = $conexao->query($sql);
 ?>
@@ -86,8 +85,4 @@ function excluir(id){
 }
 </script>
 
-<?php } else echo '
-<div class="content-wrapper">
-  <h1 style="padding-left: 30px;"> Acesso não autorizado </h1>
-</div>';
-require ('footer.php');?>
+<?php require ('footer.php');?>

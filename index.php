@@ -40,7 +40,7 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -55,7 +55,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-               <a class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -70,7 +70,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+              <a href="listaUsuario.php" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -85,7 +85,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-               <a class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

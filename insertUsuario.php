@@ -48,12 +48,12 @@
                   <div class="form-group col-md-3">
                     <label>Tipo de Usuário</label>
                     <select id="role-selector" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tipo">
-                      <option value="cliente">Cliente</option>
+                      <option value="Cliente">Cliente</option>
                       <?php
-                      if (isset($_SESSION['email']) && $_SESSION['tipo'] == "Admin") {
-                        echo "<option value='funcionario'>Funcionario</option>";
+                      if (isset($_SESSION['email']) && $_SESSION['cargo'] == "Administrador") {
+                        echo "<option value='Funcionario'>Funcionário</option>";
                       } else {
-                        echo "<option disabled>Funcionario</option>";
+                        echo "<option disabled>Funcionário</option>";
                       }
                       ?>
                     </select>
@@ -86,14 +86,14 @@
                   </div>
                   <div class="col-md-3">
                     <label for="inputSalario">Salário</label>
-                    <input type="text" name="salario" class="form-control" id="inputSalario" placeholder="2200.01" maxlength="12">
+                    <input type="text" name="salario" class="form-control" id="inputSalario" placeholder="2.200,00" onkeypress="formatarMoeda(this)" maxlength="9">
                   </div>
                   <div class="form-group col-md-3">
                     <label>Cargo de Funcionário</label>
                     <select id="cargo" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="cargo">
                       <option value="" disabled>Selecione uma Opção<option>
-                      <option value="vendedor">Vendedor</option>
-                      <option value="admin">Admin</option>
+                      <option value="Vendedor">Vendedor</option>
+                      <option value="Administrador">Administrador</option>
                     </select>
                   </div>
                 </div>
