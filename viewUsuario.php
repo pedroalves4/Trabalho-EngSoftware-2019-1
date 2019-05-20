@@ -1,6 +1,10 @@
 <?php require('header.php'); ?>
 <?php require('dashboard.php'); ?>
-
+<?php 
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM usuarios WHERE id = $id"; //buscando todos usuarios
+    $result = $conexao->query($sql);
+ ?>
 <script language="JavaScript">
   function mascara(t, mask) {
     var i = t.value.length;
@@ -25,7 +29,15 @@
         <div class="col-sm-4">
         </div><!-- nada aqui -->
         <div class="col-sm-2">
+          <?php 
+            if($_SESSION['cargo']=="Administrador"){ 
+          ?>
           <a href="listaUsuario.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-back"></i> Voltar</button></a>
+          <?php
+            }else{
+          ?>
+          <a href="inicio.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-back"></i> Voltar</button></a>
+          <?php } ?>
         </div>
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -47,10 +59,6 @@
             <!-- /.card-header -->
             <!-- form start -->
             <?php
-
-            $id = $_GET['id'];
-            $sql = "SELECT * FROM usuarios WHERE id = $id"; //buscando todos usuarios
-            $result = $conexao->query($sql);
 
             while ($row = $result->fetch_assoc()) {
               ?>

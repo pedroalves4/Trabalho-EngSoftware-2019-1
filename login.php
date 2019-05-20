@@ -33,10 +33,17 @@
 
     if(isset($_SESSION['email']) || isset($_SESSION['senha'])){
         $usuario = $_SESSION['email'];
-        echo "<script language='javascript' type'text/javascript'>
-                alert('Você já está logado! Usuário ativo: \"$usuario\". Redirecionando para a página Inicial');
-                window.location.replace('index.php');
-            </script>";
+        if($_SESSION['cargo'] != Administrador){
+            echo "<script language='javascript' type'text/javascript'>
+                    alert('Você já está logado! Usuário ativo: \"$usuario\". Redirecionando para a página Inicial');
+                    window.location.replace('inicio.php');
+                </script>";
+        }else{
+            echo "<script language='javascript' type'text/javascript'>
+                    alert('Você já está logado! Usuário ativo: \"$usuario\". Redirecionando para a página Inicial');
+                    window.location.replace('index.php');
+                </script>";
+        }
     }
 
 ?>
@@ -70,12 +77,9 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                                <label class="form-check-label" for="remember">
-                                    Lembre-me
-                                </label>
-                            </div>
+                            <label class="form-check-label">
+                                <span class="brand-text font-weight-light d-block">Novo por aqui?</span><a href="cadastroCliente.php">Cadastrar</a>
+                            </label>
                         </div>
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
