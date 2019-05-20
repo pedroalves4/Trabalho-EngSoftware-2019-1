@@ -80,7 +80,7 @@
           </li>
           <?php if ($_SESSION['cargo'] == "Administrador") { ?>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="listaSetores.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Setores

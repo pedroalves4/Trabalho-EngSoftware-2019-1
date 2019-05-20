@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Maio-2019 às 15:27
+-- Generation Time: 21-Maio-2019 às 01:01
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `lojaze`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `setores`
+--
+
+CREATE TABLE `setores` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(40) NOT NULL,
+  `descricao` varchar(60) DEFAULT NULL,
+  `nid` varchar(10) NOT NULL,
+  `responsavel` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `setores`
+--
+
+INSERT INTO `setores` (`id`, `nome`, `descricao`, `nid`, `responsavel`) VALUES
+(2, 'LaticÃ­neos', 'Produtos derivados do Leite', '048', 33),
+(3, 'Bebidas', 'NÃ£o AlcoÃ³licas', '027', 32);
 
 -- --------------------------------------------------------
 
@@ -45,15 +67,15 @@ CREATE TABLE `usuarios` (
   `nid` varchar(10) CHARACTER SET latin1 DEFAULT NULL,
   `salario` varchar(11) CHARACTER SET latin1 DEFAULT NULL,
   `cargo` varchar(40) CHARACTER SET latin1 DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `senha`, `tipo`, `nome`, `telefone`, `cpf`, `endereco`, `complemento`, `cidade`, `estado`, `cep`, `cnpj`, `nid`, `salario`, `cargo`) VALUES
-(9, 'teste1@teste.com', 'teste', 'Cliente', 'Fulano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '12.716.284/0001-03', '', '', ''),
 (5, 'teste@teste.com', 'teste', 'Admin', 'Seu Ze', '32 23232-323', '123.456.789-10', 'Rua do Lojao', '3o Andar', 'Juiz de Fora', 'MG', '36.037-010', '', '001', 'R$ 10.000,0', 'Administrador'),
+(9, 'teste1@teste.com', 'teste', 'Cliente', 'Fulano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '12.716.284/0001-03', '', '', ''),
 (10, 'teste2@teste.com', 'teste', 'Cliente', 'Sicrano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '12.716.284/0001-05', '', '', ''),
 (11, 'teste3@teste.com', 'teste', 'Cliente', 'Beltrano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '12.716.284/0001-06', '', '', ''),
 (12, 'teste4@teste.com', 'teste', 'Cliente', 'Fulano', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '12.716.284/0001-07', '', '', ''),
@@ -71,11 +93,22 @@ INSERT INTO `usuarios` (`id`, `email`, `senha`, `tipo`, `nome`, `telefone`, `cpf
 (24, 'teste16@teste.com', 'teste', 'Funcionario', 'Julia', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '', '002', 'R$ 2420,10', 'Vendedor'),
 (25, 'teste17@teste.com', 'teste', 'Funcionario', 'Pedro', '32 3232 3232', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '', '003', 'R$ 1850,00', 'Vendedor'),
 (26, 'teste18@teste.com', 'teste', 'Funcionario', 'Antonio', '32 11111-111', '123.456.789.10', 'Rua Principal', '', 'Juiz de Fora', 'MG', '36037038', '', '004', 'R$ 4100,00', 'Vendedor'),
-(27, 'ruan@ruan.com', 'ruan', 'cliente', 'Ruan', '11 11111-111', '111.111.111-11', '1', '1', '1', 'PI', '11.111-111', '11.111.111/111', '', '', '');
+(27, 'ruan@ruan.com', 'ruan', 'cliente', 'Ruan', '11 11111-111', '111.111.111-11', '1', '1', '1', 'PI', '11.111-111', '11.111.111/111', '', '', ''),
+(29, 'teste200@teste.com', 'teste', 'Cliente', 'Teste', '00 00000-000', '000.000.000-00', 'Rua de Teste', 'Teste', 'Testando a Cidade', 'MT', '00.000-000', '00.000.000/000', '', '', ''),
+(31, 'lucas@teste.com', '123456', 'Cliente', 'Lucas', '24 99999-999', '333.333.333-33', 'Av rio branco', 'Apartamment', 'aaaaaaa', 'AC', '33.333-333', '', '', '', ''),
+(32, 'teste19@teste.com', 'teste', 'Funcionario', 'JotaPÃª', '00 00000-000', '111.111.111-11', 'Rua do Buraco', 'Bloco G, 501', 'Matias Barbosa', 'MG', '22.222-222', '', '005', '3.000,00', 'Administrador'),
+(33, 'teste20@teste.com', 'teste', 'Funcionario', 'Andressa', '11 11111-111', '222.222.222-22', 'Rua Principal', 'Esquina com a Rua do Buraco', 'Bicas', 'MG', '33.333-333', '', '006', '3.520,00', 'Administrador');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `setores`
+--
+ALTER TABLE `setores`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_responsavel` (`responsavel`);
 
 --
 -- Indexes for table `usuarios`
@@ -88,10 +121,26 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT for table `setores`
+--
+ALTER TABLE `setores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `setores`
+--
+ALTER TABLE `setores`
+  ADD CONSTRAINT `id_responsavel` FOREIGN KEY (`responsavel`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
