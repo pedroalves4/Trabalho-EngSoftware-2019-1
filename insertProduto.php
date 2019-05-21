@@ -2,7 +2,7 @@
 <?php require('dashboard.php'); ?>
 
 <?php 
-$sql = "SELECT * FROM usuarios WHERE cargo='Administrador'"; 
+$sql = "SELECT * FROM setores"; 
 $result = $conexao->query($sql);
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -12,12 +12,12 @@ $result = $conexao->query($sql);
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Cadastro de Setor</h1>
+          <h1 class="m-0 text-dark">Cadastro de Produto</h1>
         </div><!-- /.col -->
         <div class="col-sm-3">
         </div><!-- nada aqui -->
         <div class="col-sm-3">
-          <a href="listaSetores.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem cadastrar</button></a>
+          <a href="listaProdutos.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem cadastrar</button></a>
         </div>
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -40,30 +40,40 @@ $result = $conexao->query($sql);
             <form action="" method="POST" target="_self" role="form">
               <div class="card-body">
                 <div class="row">
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
                     <label for="inputNome">Nome</label>
                     <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Digite o nome" maxlength="40" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputDescricao">Descrição</label>
-                    <input type="text" name="descricao" class="form-control" id="inputDescricao" placeholder="Digite a Descrição" maxlength="60">
+                    <label for="inputFabricante">Fabricante</label>
+                    <input type="text" name="fabricante" class="form-control" id="inputFabricante" placeholder="Coca-Cola" maxlength="40" required>
                   </div>
-                  <div class="form-group col-md-2">
-                    <label for="inputNID">Nº de Identificação</label>
-                    <input type="text" name="nid" class="form-control" id="inputNID" placeholder="001" maxlength="10" required>
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label>Administrador Responsável</label>
-                    <select id="role-selector" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="responsavel">
+                  <div class="form-group col-md-4">
+                    <label>Setor</label>
+                    <select id="role-selector" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="setor">
                       <?php 
                       if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) { 
                           echo "<option value='$row[id]'>$row[nome]</option>";
                         } 
                       }else{ 
-                        echo "<option value='' disabled>Não existem administradores cadastrados</option>";
+                        echo "<option value='' disabled>Não existem setores cadastrados</option>";
                       }?>
                     </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputQuantidade">Quantidade em Estoque</label>
+                    <input type="number" name="quantidade" class="form-control" id="inputQuantidade" placeholder="Digite a quantidade" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputPreco">Preço (Unidade)</label>
+                    <input type="number" step="0.01" name="preco" class="form-control" id="inputPreco" placeholder="100.20">
+                  </div>
+                  <div class="form-group col-md-3">
                   </div>
                 </div>
               </div>
@@ -81,24 +91,25 @@ $result = $conexao->query($sql);
 
 
         $nome = $_POST['nome'];
-        $descricao = $_POST['descricao'];
-        $nid = $_POST['nid'];
-        $responsavel = $_POST['responsavel'];
+        $fabricante = $_POST['fabricante'];
+        $setor = $_POST['setor'];
+        $quantidade = $_POST['quantidade'];
+        $preco = $_POST['preco'];
 
-        $sql = "INSERT INTO setores (nome,descricao,nid,responsavel) VALUES ('$nome','$descricao','$nid','$responsavel')";
+        $sql = "INSERT INTO produtos (nome,fabricante,setor,quantidade,preco) VALUES ('$nome','$fabricante','$setor','$quantidade','$preco')";
         $salvar = mysqli_query($conexao, $sql);
 
         if ($salvar) {
           ?>
           <script language="JavaScript">
-            alert("Setor cadastrado com sucesso!");
-            window.location.replace('listaSetores.php');
+            alert("Produto cadastrado com sucesso!");
+            window.location.replace('listaProdutos.php');
           </script>
         <?php
       } else {
         ?>
           <script language="JavaScript">
-            alert("Falha ao cadastrar Setor!");
+            alert("Falha ao cadastrar Produto!");
           </script>
         <?php
       }

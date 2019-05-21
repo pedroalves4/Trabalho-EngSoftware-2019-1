@@ -13,7 +13,7 @@
         <div class="col-sm-3">
         </div><!-- nada aqui -->
         <div class="col-sm-3">
-          <a href="listaSetores.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem cadastrar</button></a>
+          <a href="listaSetores.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar</button></a>
         </div>
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -62,17 +62,16 @@
                     <label>Administrador Responsável</label>
                     <select id="role-selector" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="responsavel" disabled>
                       <?php  
-                      $sql2 = "SELECT * FROM usuarios WHERE cargo='Administrador'"; 
-                      $result2 = $conexao->query($sql2);
-                    
-                      if ($result2->num_rows > 0) {
-                        while ($row2 = $result2->fetch_assoc()) { 
-                          if($row['responsavel']==$row2['id'])
-                          echo "<option value='$row2[id]'selected>$row2[nome]</option>";
-                        } 
-                      }else{ 
-                        echo "<option value='' disabled>Não existem administradores no banco</option>";
-                      }?>
+                        $sql2 = "SELECT * FROM usuarios WHERE cargo='Administrador'"; 
+                        $result2 = $conexao->query($sql2);
+                      
+                        if ($result2->num_rows > 0) {
+                          while ($row2 = $result2->fetch_assoc()) { 
+                            if($row['responsavel']==$row2['id'])
+                            echo "<option value='$row2[id]'selected>$row2[nome]</option>";
+                          } 
+                        }
+                      ?>
                     </select>
                   </div>
                 </div>

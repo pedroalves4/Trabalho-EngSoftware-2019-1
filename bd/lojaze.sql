@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2019 às 01:01
+-- Generation Time: 21-Maio-2019 às 15:46
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -25,6 +25,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(40) NOT NULL,
+  `preco` float NOT NULL,
+  `fabricante` varchar(40) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `setor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome`, `preco`, `fabricante`, `quantidade`, `setor`) VALUES
+(1, 'Garrafa 300ml', 2, 'Coca-Cola', 100, 3),
+(3, 'Chup-Chup Gourmet', 3, 'Juliane', 20, 4),
+(4, 'Queijo Minas', 14.25, 'BrÃ¡s Heleno', 4, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `setores`
 --
 
@@ -42,7 +66,8 @@ CREATE TABLE `setores` (
 
 INSERT INTO `setores` (`id`, `nome`, `descricao`, `nid`, `responsavel`) VALUES
 (2, 'LaticÃ­neos', 'Produtos derivados do Leite', '048', 33),
-(3, 'Bebidas', 'NÃ£o AlcoÃ³licas', '027', 32);
+(3, 'Bebidas', 'NÃ£o AlcoÃ³licas', '027', 32),
+(4, 'Frios', 'Geladinhos', '079', 32);
 
 -- --------------------------------------------------------
 
@@ -104,6 +129,13 @@ INSERT INTO `usuarios` (`id`, `email`, `senha`, `tipo`, `nome`, `telefone`, `cpf
 --
 
 --
+-- Indexes for table `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_produtos` (`setor`);
+
+--
 -- Indexes for table `setores`
 --
 ALTER TABLE `setores`
@@ -121,20 +153,32 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT for table `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `setores`
 --
 ALTER TABLE `setores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Limitadores para a tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD CONSTRAINT `id_produtos` FOREIGN KEY (`setor`) REFERENCES `setores` (`id`);
 
 --
 -- Limitadores para a tabela `setores`

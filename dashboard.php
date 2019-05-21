@@ -71,7 +71,7 @@
           <li class="nav-header">Financeiro</li>
           <?php } ?>
            <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="listaProdutos.php" class="nav-link">
               <i class="nav-icon fa fa-cubes"></i>
               <p>
                 Produtos

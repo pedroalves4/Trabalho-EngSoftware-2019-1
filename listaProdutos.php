@@ -3,7 +3,7 @@
 <?php
 if($_SESSION['cargo']=="Administrador"){
 
-$sql = "SELECT * FROM setores ORDER BY id ASC";
+$sql = "SELECT * FROM produtos ORDER BY id ASC";
 $result = $conexao->query($sql);
 
 ?>
@@ -15,14 +15,14 @@ $result = $conexao->query($sql);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-3">
-            <h1 class="m-0 text-dark">Setores</h1>
+            <h1 class="m-0 text-dark">Produtos</h1>
           </div><!-- /.col -->
           <div class="col-sm-3">
           </div>
           <div class="col-sm-4">
           </div>
           <div class="col-sm-2">
-            <a href="insertSetor.php"><button type="button" class="btn btn-block btn-success"><i class="nav-icon fa fa-plus"></i> Adicionar</button></a>
+            <a href="insertProduto.php"><button type="button" class="btn btn-block btn-success"><i class="nav-icon fa fa-plus"></i> Adicionar</button></a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -40,9 +40,10 @@ $result = $conexao->query($sql);
               <thead>
                 <tr>
                   <th>Nome</th>
-                  <th>Descrição</th>
-                  <th>Identificação</th>
-                  <th>Responsável</th>
+                  <th>Fabricante</th>
+                  <th>Setor</th>
+                  <th>Quantidade em Estoque</th>
+                  <th>Preço(Un)</th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -54,16 +55,17 @@ $result = $conexao->query($sql);
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr href='viewSetor.php?id=".$row['id']."' >";
                         echo "<td>" .$row["nome"] . "</td>"; 
-                        echo "<td>" .$row["descricao"] . "</td> ";
-                        echo "<td>" .$row["nid"] . "</td>";
+                        echo "<td>" .$row["fabricante"] . "</td> ";
                         
-                        $responsavel = "SELECT usuarios.nome FROM `setores` INNER JOIN `usuarios` WHERE setores.responsavel=usuarios.id AND setores.id=$row[id];";
-                        $resultado = $conexao->query($responsavel);
+                        $setor = "SELECT setores.nome FROM `setores` INNER JOIN `produtos` WHERE produtos.setor=setores.id AND produtos.id=$row[id];";
+                        $resultado = $conexao->query($setor);
                         $linha = $resultado->fetch_assoc();
                         echo "<td>" .$linha['nome'] . "</td>";  
+                        echo "<td>" .$row["quantidade"] . "</td>";
+                        echo "<td>" .$row["preco"] . "</td>";
                       ?>
-                        <td><a href="viewSetor.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
-                        <td><a href="updateSetor.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
+                        <td><a href="viewProduto.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
+                        <td><a href="updateProduto.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
                         <td><a href="#" onclick="excluir(<?php echo $row['id'];?>)" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Excluir"><i class="fa fa-trash"></i></a></td>
                       <?php
                       echo "</tr>";
@@ -83,9 +85,9 @@ $result = $conexao->query($sql);
 
 <script>
 function excluir(id){
-  var r = confirm("Tem certeza que deseja excluir esse Setor?");
+  var r = confirm("Tem certeza que deseja excluir esse Produto?");
   if (r == true) {
-    window.location.replace('deleteSetor.php?id='+id);
+    window.location.replace('deleteProduto.php?id='+id);
   } else {
     
   }
