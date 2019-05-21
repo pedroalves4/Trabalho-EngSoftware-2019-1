@@ -1,8 +1,6 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
-<?php
-if($_SESSION['cargo']=="Administrador"){
-
+<?php 
 $sql = "SELECT * FROM produtos ORDER BY id ASC";
 $result = $conexao->query($sql);
 
@@ -22,7 +20,9 @@ $result = $conexao->query($sql);
           <div class="col-sm-4">
           </div>
           <div class="col-sm-2">
+          <?php if ($_SESSION['tipo'] != "Cliente"){?>
             <a href="insertProduto.php"><button type="button" class="btn btn-block btn-success"><i class="nav-icon fa fa-plus"></i> Adicionar</button></a>
+          <?php } ?>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -40,12 +40,14 @@ $result = $conexao->query($sql);
               <thead>
                 <tr>
                   <th>Nome</th>
+                  <?php if ($_SESSION['tipo'] != "Cliente"){?>
                   <th>Fabricante</th>
                   <th>Setor</th>
                   <th>Quantidade em Estoque</th>
                   <th>Preço(Un)</th>
                   <th></th>
                   <th></th>
+                  <?php }?>
                   <th></th>
                 </tr>
               </thead>
@@ -55,6 +57,7 @@ $result = $conexao->query($sql);
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr href='viewSetor.php?id=".$row['id']."' >";
                         echo "<td>" .$row["nome"] . "</td>"; 
+                        ?><?php if ($_SESSION['tipo'] != "Cliente"){
                         echo "<td>" .$row["fabricante"] . "</td> ";
                         
                         $setor = "SELECT setores.nome FROM `setores` INNER JOIN `produtos` WHERE produtos.setor=setores.id AND produtos.id=$row[id];";
@@ -64,10 +67,12 @@ $result = $conexao->query($sql);
                         echo "<td>" .$row["quantidade"] . "</td>";
                         echo "<td>" .$row["preco"] . "</td>";
                       ?>
+                       <?php } ?>
                         <td><a href="viewProduto.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a></td>
+                        <?php if ($_SESSION['tipo'] != "Cliente"){?>
                         <td><a href="updateProduto.php?id=<?php echo $row['id'];?>" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a></td>
                         <td><a href="#" onclick="excluir(<?php echo $row['id'];?>)" style="text-decoration: none;color: #000;" data-toggle="tooltip" title="Excluir"><i class="fa fa-trash"></i></a></td>
-                      <?php
+                        <?php }
                       echo "</tr>";
                     }  
                 }    
@@ -93,15 +98,4 @@ function excluir(id){
   }
 }
 </script>
-
-<?php
-  }else{
-    echo '
-      <div class="content-wrapper">
-        <h1 style="padding-left: 30px;"> Acesso não autorizado </h1>
-        <h2 style="padding-left: 30px;"><a href="inicio.php">Voltar</a></h2>
-      </div>'
-    ;
-  }
-?>
 <?php require ('footer.php');?>
