@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2019 às 16:07
+-- Generation Time: 29-Maio-2019 às 04:15
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -44,7 +44,8 @@ CREATE TABLE `produtos` (
 INSERT INTO `produtos` (`id`, `nome`, `preco`, `fabricante`, `quantidade`, `setor`) VALUES
 (1, 'Garrafa 300ml', 2, 'Coca-Cola', 100, 3),
 (3, 'Chup-Chup Gourmet', 3, 'Juliane', 20, 4),
-(4, 'Queijo Minas', 14.25, 'BrÃ¡s Heleno', 4, 2);
+(4, 'Queijo Minas', 14.25, 'BrÃ¡s Heleno', 4, 2),
+(5, 'Presunto', 0.8, 'Sadia', 3000, 4);
 
 -- --------------------------------------------------------
 
@@ -124,6 +125,34 @@ INSERT INTO `usuarios` (`id`, `email`, `senha`, `tipo`, `nome`, `telefone`, `cpf
 (32, 'teste19@teste.com', 'teste', 'Funcionario', 'JotaPÃª', '00 00000-000', '111.111.111-11', 'Rua do Buraco', 'Bloco G, 501', 'Matias Barbosa', 'MG', '22.222-222', '', '005', '3.000,00', 'Administrador'),
 (33, 'teste20@teste.com', 'teste', 'Funcionario', 'Andressa', '11 11111-111', '222.222.222-22', 'Rua Principal', 'Esquina com a Rua do Buraco', 'Bicas', 'MG', '33.333-333', '', '006', '3.520,00', 'Administrador');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vendas`
+--
+
+CREATE TABLE `vendas` (
+  `id` int(11) NOT NULL,
+  `cliente` int(11) NOT NULL,
+  `funcionario` int(11) NOT NULL,
+  `data` varchar(14) NOT NULL,
+  `desconto` float NOT NULL,
+  `total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vendas_produtos`
+--
+
+CREATE TABLE `vendas_produtos` (
+  `id` int(11) NOT NULL,
+  `produto` int(11) NOT NULL,
+  `venda` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -149,6 +178,22 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `vendas`
+--
+ALTER TABLE `vendas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cliente_id` (`cliente`),
+  ADD KEY `funcionario_id` (`funcionario`);
+
+--
+-- Indexes for table `vendas_produtos`
+--
+ALTER TABLE `vendas_produtos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produto_id` (`produto`),
+  ADD KEY `venda_id` (`venda`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -156,7 +201,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `setores`
@@ -169,6 +214,18 @@ ALTER TABLE `setores`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `vendas`
+--
+ALTER TABLE `vendas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `vendas_produtos`
+--
+ALTER TABLE `vendas_produtos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -185,6 +242,20 @@ ALTER TABLE `produtos`
 --
 ALTER TABLE `setores`
   ADD CONSTRAINT `id_responsavel` FOREIGN KEY (`responsavel`) REFERENCES `usuarios` (`id`);
+
+--
+-- Limitadores para a tabela `vendas`
+--
+ALTER TABLE `vendas`
+  ADD CONSTRAINT `cliente_id` FOREIGN KEY (`cliente`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `funcionario_id` FOREIGN KEY (`funcionario`) REFERENCES `usuarios` (`id`);
+
+--
+-- Limitadores para a tabela `vendas_produtos`
+--
+ALTER TABLE `vendas_produtos`
+  ADD CONSTRAINT `produto_id` FOREIGN KEY (`produto`) REFERENCES `produtos` (`id`),
+  ADD CONSTRAINT `venda_id` FOREIGN KEY (`venda`) REFERENCES `vendas` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
