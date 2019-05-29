@@ -129,7 +129,7 @@ $resultProdutos = $conexao->query($sqlProdutos);
         $funcionario = $_POST['funcionario'];
         $data = $_POST['data'];
         $desconto = $_POST['desconto'];
-        $total = 10;
+        $total = $_POST['total'];
         $produtos = $_POST['produtos'];
         $quantidades = $_POST['quantidades'];
 
@@ -221,6 +221,6 @@ $(document).ready(function(){
         valor += parseInt(document.getElementById(id).value);
       }
     }
-    document.getElementById('inputTotal').placeholder = valor;
+    document.getElementById('inputTotal').value = valor;
   }
 </script> 
