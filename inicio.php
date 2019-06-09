@@ -1,9 +1,9 @@
 <?php include ('header.php'); ?>
   <?php include ('dashboard.php'); ?>
   <?php
-    $contadorUsuario = "SELECT count(*) cc FROM usuarios";
-    $resultUsuario = $conexao->query($contadorUsuario);
-    $rowUsuario = $resultUsuario->fetch_assoc();
+    $contadorProduto = "SELECT count(*) cc FROM produtos";
+    $resultProduto = $conexao->query($contadorProduto);
+    $rowProduto = $resultProduto->fetch_assoc();
   ?>
 
 
@@ -36,14 +36,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php echo $rowUsuario['cc'] ; ?></h3>
+                <h3><?php echo $rowProduto['cc'] ; ?></h3>
 
                 <p>Produtos</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="listaProdutos.php" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

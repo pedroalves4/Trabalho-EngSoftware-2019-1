@@ -1,9 +1,18 @@
   <?php include ('header.php'); ?>
   <?php include ('dashboard.php'); ?>
   <?php
+    $contadorVenda = "SELECT count(*) cc FROM vendas";
+    $contadorProduto = "SELECT count(*) cc FROM produtos";
     $contadorUsuario = "SELECT count(*) cc FROM usuarios";
+    $contadorSetor = "SELECT count(*) cc FROM setores";
+    $resultVenda = $conexao->query($contadorVenda);
+    $resultProduto = $conexao->query($contadorProduto);
     $resultUsuario = $conexao->query($contadorUsuario);
+    $resultSetor = $conexao->query($contadorSetor);
+    $rowVenda = $resultVenda->fetch_assoc();
+    $rowProduto = $resultProduto->fetch_assoc();
     $rowUsuario = $resultUsuario->fetch_assoc();
+    $rowSetor = $resultSetor->fetch_assoc();
   ?>
 
 
@@ -33,14 +42,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>153</h3>
+                <h3><?= $rowVenda['cc'] ; ?></h3>
 
                 <p>Vendas</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="listaVendas.php" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -48,14 +57,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>60</h3>
+                <h3><?= $rowProduto['cc'] ; ?></h3>
 
                 <p>Produtos</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="listaProdutos.php" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -63,7 +72,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php echo $rowUsuario['cc'] ; ?></h3>
+                <h3><?= $rowUsuario['cc'] ; ?></h3>
 
                 <p>Usuários</p>
               </div>
@@ -78,14 +87,14 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>15</h3>
+                <h3><?= $rowSetor['cc'] ; ?></h3>
 
                 <p>Setores</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="listaSetores.php" class="small-box-footer">Veja mais <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
