@@ -1,6 +1,13 @@
 <?php require('header.php'); ?>
 <?php require('dashboard.php'); ?>
-
+<?php
+$sqlFuncionarios = "SELECT * FROM usuarios WHERE tipo = 'Funcionario'"; 
+$sqlClientes = "SELECT * FROM usuarios WHERE tipo = 'Cliente'"; 
+$sqlProdutos = "SELECT * FROM produtos"; 
+$resultFuncionarios = $conexao->query($sqlFuncionarios);
+$resultClientes = $conexao->query($sqlClientes);
+$resultProdutos = $conexao->query($sqlProdutos);
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -47,7 +54,11 @@
                     <label>Cliente</label>
                     <select id="selectCliente" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="cliente" disabled>
                       <?php
-                          echo "<option value='$row[cliente]'>$row[cliente]</option>";
+                          while ($rowtemp = $resultClientes->fetch_assoc()) { 
+                            if($rowtemp['id'] == $row['cliente']){
+                              echo "<option selected value='$rowtemp[id]'>$rowtemp[nome]</option>";
+                            }
+                          } 
                       ?>
                     </select>
                   </div>
@@ -55,7 +66,12 @@
                     <label>Funcionário Responsável</label>
                     <select id="selectFuncionario" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="funcionario" disabled>
                       <?php
-                          echo "<option>$row[funcionario]</option>";
+                          while ($rowtemp = $resultFuncionarios->fetch_assoc()) { 
+                            if($rowtemp['id'] == $row['funcionario']){
+                              echo "<option selected value='$rowtemp[id]'>$rowtemp[nome]</option>";
+                            }
+                            echo "<option value='$rowtemp[id]'>$rowtemp[nome]</option>";
+                          } 
                       ?>
                     </select>
                   </div>

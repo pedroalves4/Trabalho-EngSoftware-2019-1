@@ -21,7 +21,7 @@ $resultProdutos = $conexao->query($sqlProdutos);
         <div class="col-sm-3">
         </div><!-- nada aqui -->
         <div class="col-sm-3">
-          <a href="listaProdutos.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem cadastrar</button></a>
+          <a href="listaVendas.php"><button type="button" class="btn btn-block btn-secondary"><i class="nav-icon fa fa-undo"></i> Voltar sem cadastrar</button></a>
         </div>
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -76,7 +76,7 @@ $resultProdutos = $conexao->query($sqlProdutos);
                   </div>
                   <div class="form-group col-md-2">
                     <label for="inputTotal">Valor Total</label>
-                    <input type="number" name="total" class="form-control" id="inputTotal" placeholder="00,00"  disabled>
+                    <input type="number" step="0.01" name="total" class="form-control" id="inputTotal" placeholder="00,00">
                   </div>
                 </div>
                 <div id="addprod" class="row">
@@ -102,8 +102,8 @@ $resultProdutos = $conexao->query($sqlProdutos);
                     <input type="number" name="quantidades[]" class="form-control" id="inputQuantidade" placeholder="Digite a quantidade" required>
                   </div>
                   <div class="form-group col-md-2">
-                    <label for="inputPreco">Preco</label>
-                    <input name="preco" class="form-control" id="inputPreco0" placeholder="2,50" onblur="calcular()" required >
+                    <label for="inputPreco0">Preco</label>
+                    <input name="precos[]" class="form-control" id="inputPreco0" placeholder="2,50" onblur="calcular()" required >
                   </div>
                   <div class="form-group col-md-1">
                     <label style="color: #fff;">.</label>
@@ -129,9 +129,11 @@ $resultProdutos = $conexao->query($sqlProdutos);
         $funcionario = $_POST['funcionario'];
         $data = $_POST['data'];
         $desconto = $_POST['desconto'];
-        $total = $_POST['total'];
+        $precoTotal = $_POST['total'];
+        $total = $precoTotal - $desconto;
         $produtos = $_POST['produtos'];
         $quantidades = $_POST['quantidades'];
+        $precos = $_POST['precos'];
 
         $sql = "INSERT INTO vendas (cliente,funcionario,data,desconto,total) VALUES ('$cliente','$funcionario','$data','$desconto','$total')";
         $salvar1 = mysqli_query($conexao, $sql);
@@ -149,17 +151,23 @@ $resultProdutos = $conexao->query($sqlProdutos);
         $ii++;
       }
       $ii=0;
+      foreach ($precos as $indice => $valor) {
+        $preco[$ii] = $valor;
+        $ii++;
+      }
+      $ii=0;
       foreach ($produtos as $indice => $valor) {
         $quan = intval($quant[$ii]);
+        $prec = $preco[$ii];
         $val = intval($valor);
-        $sql2 = "INSERT INTO vendas_produtos (produto,venda,quantidade) VALUES ('$val', '$id', '$quan')";
+        $sql2 = "INSERT INTO vendas_produtos (produto,venda,quantidade,preco) VALUES ('$val', '$id', '$quan', '$prec')";
         $salvar2 = mysqli_query($conexao, $sql2);
         $ii++;
       }
 
 
      
-      /*if ($salvar1 && $salvar2) {
+      if ($salvar1 && $salvar2) {
           ?>
           <script language="JavaScript">
             alert("Venda cadastrada com sucesso!");
@@ -172,7 +180,7 @@ $resultProdutos = $conexao->query($sqlProdutos);
             alert("Falha ao cadastrar Venda!");
           </script>
         <?php
-      }*/
+      }
     
     }
     ?>
@@ -199,7 +207,7 @@ $(document).ready(function(){
   localStorage.setItem("contata", contador);
 
   $("#botaoadicionar").click(function(){
-    $("#DIVprodutos").append("<div id='prod"+contador+"' class='row'><div class='form-group col-md-4'><label>Produto</label><select id='selectProdutos"+contador+"' class='form-control select2 select2-hidden-accessible' style='width: 100%;' tabindex='-1' aria-hidden='true' name='produtos[]'><?php while($row = $resultProdutos->fetch_assoc()){echo "<option value='$row[id]'>$row[nome]</option>";}?></select></div><div class='form-group col-md-2'><label for='inputQuantidade"+contador+"'>Quantidade</label><input type='number' name='quantidades[]' class='form-control' id='inputQuantidade"+contador+"' placeholder='Digite a quantidade' required></div><div class='form-group col-md-2'><label for='inputPreco'>Preco</label><input name='preco' class='form-control' id='inputPreco"+contador+"' placeholder='2,50' onblur='calcular()' required></div><div class='form-group col-md-1'><label style='color: #fff;'>.</label><button id='deleteProduto"+contador+"' type='button' class='btn btn-block btn-danger' onclick='excluirProduto("+contador+")'><i class='nav-icon fa fa-trash'></i></button></div><div class='form-group offset-md-3'></div></div>");
+    $("#DIVprodutos").append("<div id='prod"+contador+"' class='row'><div class='form-group col-md-4'><label>Produto</label><select id='selectProdutos"+contador+"' class='form-control select2 select2-hidden-accessible' style='width: 100%;' tabindex='-1' aria-hidden='true' name='produtos[]'><?php while($row = $resultProdutos->fetch_assoc()){echo "<option value='$row[id]'>$row[nome]</option>";}?></select></div><div class='form-group col-md-2'><label for='inputQuantidade"+contador+"'>Quantidade</label><input type='number' name='quantidades[]' class='form-control' id='inputQuantidade"+contador+"' placeholder='Digite a quantidade' required></div><div class='form-group col-md-2'><label for='inputPreco'>Preco</label><input name='precos[]' class='form-control' id='inputPreco"+contador+"' placeholder='2,50' onblur='calcular()' required></div><div class='form-group col-md-1'><label style='color: #fff;'>.</label><button id='deleteProduto"+contador+"' type='button' class='btn btn-block btn-danger' onclick='excluirProduto("+contador+")'><i class='nav-icon fa fa-trash'></i></button></div><div class='form-group offset-md-3'></div></div>");
     contador++;
     localStorage.setItem("contata", contador);
   });
@@ -218,7 +226,7 @@ $(document).ready(function(){
     for (i=0; i<contador;i++){
       var id = "inputPreco"+i;
       if(document.getElementById(id) != null){
-        valor += parseInt(document.getElementById(id).value);
+        valor += parseFloat(document.getElementById(id).value);
       }
     }
     document.getElementById('inputTotal').value = valor;

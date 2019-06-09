@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Maio-2019 às 04:15
+-- Generation Time: 10-Jun-2019 às 00:06
 -- Versão do servidor: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -140,6 +140,13 @@ CREATE TABLE `vendas` (
   `total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `vendas`
+--
+
+INSERT INTO `vendas` (`id`, `cliente`, `funcionario`, `data`, `desconto`, `total`) VALUES
+(1, 31, 33, '2019-06-16', 10, 10);
+
 -- --------------------------------------------------------
 
 --
@@ -150,8 +157,19 @@ CREATE TABLE `vendas_produtos` (
   `id` int(11) NOT NULL,
   `produto` int(11) NOT NULL,
   `venda` int(11) NOT NULL,
-  `quantidade` int(11) NOT NULL
+  `quantidade` int(11) NOT NULL,
+  `preco` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vendas_produtos`
+--
+
+INSERT INTO `vendas_produtos` (`id`, `produto`, `venda`, `quantidade`, `preco`) VALUES
+(1, 1, 1, 1, 0),
+(2, 3, 1, 2, 0),
+(3, 4, 1, 3, 0),
+(4, 5, 1, 4, 0);
 
 --
 -- Indexes for dumped tables
@@ -219,13 +237,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `vendas`
 --
 ALTER TABLE `vendas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `vendas_produtos`
 --
 ALTER TABLE `vendas_produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -254,8 +272,8 @@ ALTER TABLE `vendas`
 -- Limitadores para a tabela `vendas_produtos`
 --
 ALTER TABLE `vendas_produtos`
-  ADD CONSTRAINT `produto_id` FOREIGN KEY (`produto`) REFERENCES `produtos` (`id`),
-  ADD CONSTRAINT `venda_id` FOREIGN KEY (`venda`) REFERENCES `vendas` (`id`);
+  ADD CONSTRAINT `produto_id` FOREIGN KEY (`produto`) REFERENCES `produtos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `venda_id` FOREIGN KEY (`venda`) REFERENCES `vendas` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
