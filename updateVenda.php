@@ -140,7 +140,7 @@ function dd($data) {
                   </div>
                   <div class="form-group col-md-2">
                     <label for="inputQuantidade">Quantidade</label>
-                    <input type="number" name="quantidades[]" class="form-control" id="inputQuantidade" value=<?php echo $row['quantidade']; ?>  >
+                    <input type="number" name="quantidades[]" class="form-control" onblur="calcular()" id="inputQuantidade" value=<?php echo $row['quantidade']; ?>  >
                   </div>
                   <div class="form-group col-md-2">
                     <label for="inputPreco<?= $cont ?>">Preco</label>
@@ -256,7 +256,7 @@ $(document).ready(function(){
   localStorage.setItem("contata", contador);
 
   $("#botaoadicionar").click(function(){
-    $("#DIVprodutos").append("<div id='prod"+contador+"' class='row'><div class='form-group col-md-4'><label>Produto</label><select id='selectProdutos"+contador+"' class='form-control select2 select2-hidden-accessible' style='width: 100%;' tabindex='-1' aria-hidden='true' name='produtos[]'><?php while($row = $resultProdutos->fetch_assoc()){echo "<option value='$row[id]'>$row[nome]</option>";}?></select></div><div class='form-group col-md-2'><label for='inputQuantidade"+contador+"'>Quantidade</label><input type='number' name='quantidades[]' class='form-control' id='inputQuantidade"+contador+"' placeholder='Digite a quantidade' required></div><div class='form-group col-md-2'><label for='inputPreco'>Preco</label><input name='preco[]' class='form-control' id='inputPreco"+contador+"' placeholder='2,50' onblur='calcular()' required></div><div class='form-group col-md-1'><label style='color: #fff;'>.</label><button id='deleteProduto"+contador+"' type='button' class='btn btn-block btn-danger' onclick='excluirProduto("+contador+")'><i class='nav-icon fa fa-trash'></i></button></div><div class='form-group offset-md-3'></div></div>");
+    $("#DIVprodutos").append("<div id='prod"+contador+"' class='row'><div class='form-group col-md-4'><label>Produto</label><select id='selectProdutos"+contador+"' class='form-control select2 select2-hidden-accessible' style='width: 100%;' tabindex='-1' aria-hidden='true' name='produtos[]'><?php while($row = $resultProdutos->fetch_assoc()){echo "<option value='$row[id]'>$row[nome]</option>";}?></select></div><div class='form-group col-md-2'><label for='inputQuantidade"+contador+"'>Quantidade</label><input type='number' name='quantidades[]' class='form-control' onblur='calcular()' id='inputQuantidade"+contador+"' placeholder='Digite a quantidade' required></div><div class='form-group col-md-2'><label for='inputPreco'>Preco</label><input name='preco[]' class='form-control' id='inputPreco"+contador+"' placeholder='2,50' onblur='calcular()' required></div><div class='form-group col-md-1'><label style='color: #fff;'>.</label><button id='deleteProduto"+contador+"' type='button' class='btn btn-block btn-danger' onclick='excluirProduto("+contador+")'><i class='nav-icon fa fa-trash'></i></button></div><div class='form-group offset-md-3'></div></div>");
     contador++;
     localStorage.setItem("contata", contador);
   });
@@ -274,8 +274,9 @@ $(document).ready(function(){
     var contador = localStorage.getItem("contata");
     for (i=0; i<contador;i++){
       var id = "inputPreco"+i;
+      var  id2 = "inputQuantidade"+i;
       if(document.getElementById(id) != null){
-        valor += parseFloat(document.getElementById(id).value);
+        valor += (parseFloat(document.getElementById(id).value) * parseInt(document.getElementById(id2).value));
       }
     }
     document.getElementById('inputTotal').value = valor;

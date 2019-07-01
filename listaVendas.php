@@ -1,7 +1,7 @@
 <?php require ('header.php'); ?>
 <?php require ('dashboard.php'); ?>
 <?php
-if($_SESSION['cargo']=="Administrador"){
+if($_SESSION['cargo']=="Administrador" || $_SESSION['cargo']=="Vendedor"){
 
 $sql = "SELECT * FROM vendas ORDER BY id ASC";
 $result = $conexao->query($sql);

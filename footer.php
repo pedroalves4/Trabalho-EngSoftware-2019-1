@@ -35,20 +35,7 @@
 <!-- Data Tables -->
 <script type="text/javascript" charset="utf8" src="plugins/datatables/jquery.dataTables.js"></script>
 
-<script>
-$(function() {
-    $('#showcliente').hide();
-    $('#showfuncionario').hide();
-    var atual = $('#role-selector').val();
-    $('#show'+atual).show();
-    $('#role-selector').change(function(){
-        var demovalue = $(this).val(); 
-        $('#showcliente').hide();
-        $('#showfuncionario').hide();
-        $("#show"+demovalue).show();
-    });
-});
-</script>
+
 <script language="JavaScript">
   function mascara(t, mask) {
     var i = t.value.length;

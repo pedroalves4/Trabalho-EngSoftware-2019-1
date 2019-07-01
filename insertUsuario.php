@@ -220,3 +220,18 @@
 <!-- /.content-wrapper -->
 
 <?php require('footer.php'); ?>
+
+<script>
+$(function() {
+    $('#showcliente').hide();
+    $('#showfuncionario').hide();
+    var atual = $('#role-selector').val().toLowerCase();
+    $('#show'+atual).show();
+    $('#role-selector').change(function(){
+        var demovalue = $(this).val().toLowerCase(); 
+        $('#showcliente').hide();
+        $('#showfuncionario').hide();
+        $("#show"+demovalue).show();
+    });
+});
+</script>
